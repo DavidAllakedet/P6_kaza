@@ -8,6 +8,7 @@ import Room from './pages/Room'
 import Header from './components/Header'
 import About from './pages/About'
 import Error from './pages/Error'
+import Footer from './components/Footer'
 
 
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/room/:id" element={<Room />} />
             <Route path="*" element={<Error />} />
           </Routes>
+          <Footer />
         </Router>
       </React.StrictMode>,
       document.getElementById('root')

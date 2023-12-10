@@ -32,10 +32,16 @@ const CardWrapper = styled.div`
 
 function Card({ label, title, picture }) {
   return (
-    <CardWrapper>
+
+    // <Link to={''}>
+   <CardWrapper>
         <CardLabel>{label}</CardLabel>
         <span>{title}</span>
-    </CardWrapper>
+    </CardWrapper>  
+  // </Link>
+
+
+   
   )
 }
 

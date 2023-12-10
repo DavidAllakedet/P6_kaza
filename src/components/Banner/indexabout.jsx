@@ -1,11 +1,6 @@
 
 import styled from 'styled-components'
-import backgroundImageAbout from "../../assets/BannerBg2.png";
-import backgroundImageHome from "../../assets/BannerBg.png"
-
-
-
-
+import background from "../../assets/BannerBg2.png";
 
 const BannerDiv = styled.div`
 display:flex;
@@ -15,7 +10,7 @@ height:250px;
 
 background-color:#f6f6f6;
 border-radius: 30px;
-color:red;
+color:white;
 text-align: center;
 align-items:center;
 justify-content:center;
@@ -46,16 +41,9 @@ margin: auto;
 function Banner(props) {
   return (
 
-    // <BannerDiv  style={{ backgroundImage: `url(${background})` }}>
-    //   <h1> Chez vous, partout et ailleurs</h1>
-    // </BannerDiv>
-
-
-<BannerDiv style={{ backgroundImage: `url(${props.page==='About' ? backgroundImageAbout : backgroundImageHome})` }}>
-    <h1> Chez vous, partout et ailleurs</h1>
-</BannerDiv>
-
-
+    <BannerDiv  style={{ backgroundImage: `url(${background})` }}>
+      
+    </BannerDiv>
 
 
     // <B style={{

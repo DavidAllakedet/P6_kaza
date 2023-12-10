@@ -1,6 +1,6 @@
 import Card from '../../components/Card'
 import styled from 'styled-components'
-import Banner from '../../components/Banner'
+import Banner from '../../components/Banner/index'
 
 const CardsContainer = styled.div`
 display: grid;
@@ -13,7 +13,6 @@ background-color: #f6f6f6;
 padding: 50px;
 margin-top: 20px;
 border-radius: 30px;
-
 `
 const FreeLancesConst = styled.div`
 display:flex;
@@ -52,7 +51,7 @@ const freelanceProfiles = [
 function Home() {
   return (
     <FreeLancesConst>
-      <Banner ImageName="BannerBg.png" />
+      <Banner backgroundImage="BannerBg.png" />
       <CardsContainer>
         {freelanceProfiles.map((profile, index) => (
           <Card
