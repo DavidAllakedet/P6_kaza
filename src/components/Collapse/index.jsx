@@ -20,12 +20,10 @@ const CollapseC = styled.div`
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.3s ease;
-transition :height 500ms;
+
   &:hover {
     background-color: #e04f4f;
-
   }
-  
 `;
 
 const TitleP = styled.p`

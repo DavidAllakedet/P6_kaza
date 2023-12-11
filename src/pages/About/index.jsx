@@ -15,7 +15,6 @@ const Accordeon = styled.div`
   margin: 20px;
   max-width: 1000px;
   gap: 15px;
-  transition:height 500ms;
 `;
 
 const collapseData = [
@@ -51,7 +50,7 @@ function About() {
     2: false,
     3: false,
     4: false,
-    // Ajoutez plus d'éléments si nécessaire
+   
   });
 
   const toggle = (id) => {
