@@ -20,7 +20,6 @@ const CollapseC = styled.div`
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.3s ease;
-
   &:hover {
     background-color: #e04f4f;
   }
@@ -36,6 +35,7 @@ const DescC = styled.div`
   background-color: #f6f6f6;
   padding: 20px 50px;
   color: #ff6060;
+  
 `;
 
 const IconContainer = styled.div`
@@ -58,7 +58,7 @@ const StyledIconeFleche = styled(IconeFleche)`
   font-size: 80px;
   transition: transform 0.5s ease;
   ${({ id }) => id && rotateAnimation(id)}
-  transform: ${(props) => (props.rotate ? 'rotate(180deg)' : 'rotate(0deg)')};
+  transform: ${(props) => (props.rotate ? 'rotate(-180deg)' : 'rotate(0deg)')};
   animation: ${({ id }) => id && `rotate-${id}`} 0.5s ease;
 `;
 
@@ -80,7 +80,6 @@ const AccordeonItems = ({ id, isOpen, toggle, title, description }) => {
       setIsAnimating(true);
     }
   };
-
   return (
     <CollapseContainer>
       <CollapseC onClick={handleRotation}>

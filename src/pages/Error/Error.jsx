@@ -1,8 +1,6 @@
 import React from "react"
+import { Link } from 'react-router-dom';
 import styled from "styled-components"
-
-
-
 
 function Error() {
 
@@ -13,7 +11,6 @@ function Error() {
   jsutify-content: center;
   align-items:center
   `
-
   const Div404 = styled.div`
   font-size:400px;
   `
@@ -23,17 +20,20 @@ function Error() {
   align-items:center
   padding:60px 0;`
 
-  // const a = styled.a`
-  // color:#ff6060;
-  // padding:60px 0;
-  // `
+   const StyledLink = styled(Link)`
+   color:#ff6060;
+   padding:60px 0;
+   text-decoration:none;
+   
+  `
     return (
       <DivErr>
         <Div404>404</Div404>
         <Divh1>Oups! La page que vous demandez n'existe pas.</Divh1>
-        <a href="/">Retourner sur la page d’accueil</a>
+        <StyledLink to={"/" }>
+        Retourner sur la page d’accueil
+        </StyledLink> 
       </DivErr>
-      
     )
   }
   

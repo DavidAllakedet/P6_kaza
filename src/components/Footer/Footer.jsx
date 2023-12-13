@@ -19,9 +19,6 @@ const FooterLogo = styled.img`
   padding: 30px;
   height: 70px;
 `
-
-
-
   return (
     <FooterDiv className="footer">
       <FooterLogo src={DarkLogo} alt="Logo du site" className="footer__logo" />

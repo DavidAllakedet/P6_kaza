@@ -1,7 +1,7 @@
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import colors from '../../utils/colors'
-
 
 const CardLabel = styled.span`
     display:flex;
@@ -9,9 +9,7 @@ const CardLabel = styled.span`
     justify-content:flex-end;
     color: #5843e4;
     font-size: 22px;
-    
 `
-
 const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -22,29 +20,27 @@ const CardWrapper = styled.div`
     border-radius: 10px;
     width: 300px;
     height:300px;
-    
-    
     &:hover {
         cursor: pointer;
         box-shadow: 2px 2px 10px #e2e3e9;
     }
 `
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color:white;
+`;
 
 function Card({ label, title, picture }) {
   return (
 
-    // <Link to={''}>
-   <CardWrapper>
+    <StyledLink to={'/room'}>
+      <CardWrapper>
         <CardLabel>{label}</CardLabel>
         <span>{title}</span>
-    </CardWrapper>  
-  // </Link>
-
-
-   
+      </CardWrapper>
+    </StyledLink>
   )
 }
-
 Card.propTypes = {
   label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,

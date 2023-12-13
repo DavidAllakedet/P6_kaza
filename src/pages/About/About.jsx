@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import AccordeonItems from '../../components/Collapse';
-import Banner from '../../components/Banner/index';
+import AccordeonItems from '../../components/Collapse/Collapse';
+import Banner from '../../components/Banner/Banner';
 
 const AccordeonContener = styled.section`
   height: 100%;
