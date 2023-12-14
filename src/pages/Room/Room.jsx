@@ -4,12 +4,14 @@ import AccordeonItems from '../../components/RoomCollapse/RoomCollapse';
 import Carousel from '../../components/Carousel/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const RoomDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content:center;
-  width: 100%;
+  width: 1240px;
   color: #ff6060;
   padding:50px 0;
   gap:30px;
@@ -20,15 +22,17 @@ const RoomContener1 = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  font-family: Montserrat;
 `;
 const Room1Content1 = styled.div`
 display:flex;
 flex-direction:column;
+gap:10px;
 //width: 100%;
 `;
 const Room1Content1h1 = styled.div`
 width:auto;
-font-size:50px;
+font-size:36px;
 `
 const Room1Content1p = styled.div`
 font-size:20px;
@@ -49,6 +53,7 @@ const Room1Content2 = styled.div`
 display:flex;
 flex-direction:row;
 justify-content:space-between;
+gap:10px;
 
 `
 const Room1Content2p = styled.div`
@@ -64,8 +69,9 @@ const Tagdiv = styled.div`
 const Tag = styled.div`
   color: white;
   background-color: #ff6060;
-  padding: 5px 30px;
-  border-radius: 15px;
+  padding: 5px 40px;
+  border-radius: 10px;
+  font-family: Montserrat;
 `;
 
 const AccordeonDiv = styled.div`
@@ -81,7 +87,7 @@ const AccordeonContener = styled.section`
 `;
 
 const Accordeon = styled.div`
-
+font-family: Montserrat;
 `;
 
 const EtoilesDiv = styled.div`
@@ -91,6 +97,13 @@ const EtoilesDiv = styled.div`
 
 const Etoile = styled(FontAwesomeIcon)`
   color: ${({ index, totalStars }) => (index < totalStars - 2 ? '#ff6060' : '#C4C4C4')};
+`;
+
+const HeaderFooterdiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const collapseData = [
@@ -144,7 +157,8 @@ function Room() {
   const isRestoring = Object.keys(accordeonStates).length === 0;
 
   return (
-    <>
+    <HeaderFooterdiv>
+      <Header />
       <Carousel />
       <RoomDiv>
         <RoomContener1>
@@ -206,7 +220,8 @@ function Room() {
           )}
         </AccordeonDiv>
       </RoomDiv>
-    </>
+      <Footer />
+      </HeaderFooterdiv>
   );
 }
 

@@ -5,10 +5,10 @@ import backgroundImageHome from "../../assets/BannerBg.png";
 const BannerDiv = styled.div`
   display: flex;
   flex-direction: row;
-  width: 1220px;
+  width: 1240px;
   height: 250px;
   background-color: #f6f6f6;
-  border-radius: 30px;
+  border-radius: 25px;
   color: red;
   text-align: center;
   align-items: center;
@@ -51,8 +51,9 @@ const BannerDiv = styled.div`
 `;
 const BannerTitle = styled.div`
   position: absolute;
-  font-size: 30px;
+  font-size: 50px;
   color: white;
+  font-family:Montserrat;
 `;
 
 function Banner(props) {

@@ -6,10 +6,9 @@ import CollapseButton from '../../assets/CollapseButton.svg';
 const CarouselContainer = styled.div`
   position: relative;
   margin: auto;
-  width: 90%;
+  width: 1240px;
   height: 415px;
   overflow: hidden;
-  // text-align: center;
   border-radius: 20px;
 `;
 
@@ -17,7 +16,6 @@ const CarouselImage = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
-  //text-align: center;
 `;
 
 const CarouselButtons = styled.div`

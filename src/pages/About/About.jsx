@@ -2,19 +2,29 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import AccordeonItems from '../../components/Collapse/Collapse';
 import Banner from '../../components/Banner/Banner';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const AccordeonContener = styled.section`
   height: 100%;
   display: grid;
   place-items: center;
+  font-family: Montserrat;
   gap: 15px;
 `;
 
 const Accordeon = styled.div`
   padding: 20px;
   margin: 20px;
-  max-width: 1000px;
+  max-width: 1025px;
   gap: 15px;
+`;
+
+const HeaderFooterdiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const collapseData = [
@@ -61,6 +71,8 @@ function About() {
   };
 
   return (
+    <HeaderFooterdiv>
+    <Header />
     <AccordeonContener>
       <Banner page="About" />
       <Accordeon>
@@ -75,6 +87,8 @@ function About() {
         ))}
       </Accordeon>
     </AccordeonContener>
+    <Footer />
+    </HeaderFooterdiv>
   );
 }
 

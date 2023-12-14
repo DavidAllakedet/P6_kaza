@@ -5,7 +5,7 @@ import { ReactComponent as IconeFleche } from '../../assets/arrow_back.svg';
 
 const CollapseContainer = styled.div`
   padding: 10px;
-  width: 1000px;
+  //width: 1200px;
 `;
 
 const CollapseC = styled.div`
