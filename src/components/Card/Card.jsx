@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import colors from '../../utils/colors'
+//import colors from '../../utils/colors'
 
 const CardLabel = styled.span`
     display:flex;
@@ -15,7 +15,7 @@ const CardWrapper = styled.div`
     flex-direction: column;
     justify-content: flex-end;
     padding: 15px;
-    background-color: ${colors.background};
+    background-color: #FF6060 ;
     background: linear-gradient(#FF6060, #000000) 100%);
     border-radius: 10px;
     width: 300px;
