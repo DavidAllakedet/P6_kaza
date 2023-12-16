@@ -31,7 +31,7 @@ const BannerDiv = styled.div`
   }
 
   ${props => {
-    console.log('Page:', props.page);
+    //console.log('Page:', props.page);
     if (props.page === 'About') {
       return `
         &:before {

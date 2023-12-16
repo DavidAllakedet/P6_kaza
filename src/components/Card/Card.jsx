@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-//import colors from '../../utils/colors'
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const CardLabel = styled.span`
     display:flex;
@@ -16,7 +15,7 @@ const CardWrapper = styled.div`
     justify-content: flex-end;
     padding: 15px;
     background-color: #FF6060 ;
-    background: linear-gradient(#FF6060, #000000) 100%);
+    //background: linear-gradient(180deg, rgba(255, 96, 96, 1) 0%, rgba(0, 0, 0, 1)  100%);
     border-radius: 10px;
     width: 300px;
     height:300px;
@@ -30,7 +29,7 @@ const StyledLink = styled(Link)`
   color:white;
 `;
 
-function Card({ label, title, picture }) {
+function Card({ label, title}) {
   return (
 
     <StyledLink to={'/room'}>

@@ -118,12 +118,13 @@ const collapseData = [
     section: 'equipement',
     title: 'Equipement',
     description: [
-      "Parking",
-      "Sèche Cheveux",
-      "Machine à laver",
-      "Wi-fi",
-      "Cuisine équipée",
-      "Télévision",
+      "Climatisation", <br key="line-break" />,
+      "Wi-Fi", <br key="line-break" />,
+      "Cuisine",<br key="line-break" />,
+      "Espace de travail", <br key="line-break" />,
+      "Fer à repasser",<br key="line-break" />,
+      "Sèche-cheveux", <br key="line-break" />,
+      "Cintres"
     ],
   },
 ];
@@ -167,7 +168,7 @@ function Room() {
             <Room1Content1p>Paris, Île-de-France</Room1Content1p>
           </Room1Content1>
           <Room1Content2>
-            <Room1Content2p>Alexandre <br /> Dumas</Room1Content2p>
+            <Room1Content2p>Alexandre <br key="line-break" /> Dumas</Room1Content2p>
             <Room1Cercle></Room1Cercle>
           </Room1Content2>
         </RoomContener1>
@@ -186,6 +187,21 @@ function Room() {
         <AccordeonDiv>
           {isRestoring ? null : (
             <>
+             <AccordeonContener>
+                <Accordeon>
+                  {collapseData
+                    .filter((data) => data.section === 'description')
+                    .map((data) => (
+                      <AccordeonItems
+                        key={data.id}
+                        isOpen={accordeonStates.description}
+                        title={data.title}
+                        description={data.description}
+                        toggle={() => toggle('description')}
+                      />
+                    ))}
+                </Accordeon>
+              </AccordeonContener>
               <AccordeonContener>
                 <Accordeon>
                   {collapseData
@@ -201,21 +217,7 @@ function Room() {
                     ))}
                 </Accordeon>
               </AccordeonContener>
-              <AccordeonContener>
-                <Accordeon>
-                  {collapseData
-                    .filter((data) => data.section === 'description')
-                    .map((data) => (
-                      <AccordeonItems
-                        key={data.id}
-                        isOpen={accordeonStates.description}
-                        title={data.title}
-                        description={data.description}
-                        toggle={() => toggle('description')}
-                      />
-                    ))}
-                </Accordeon>
-              </AccordeonContener>
+             
             </>
           )}
         </AccordeonDiv>

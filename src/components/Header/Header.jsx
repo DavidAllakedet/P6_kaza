@@ -1,14 +1,18 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import DarkLogo from '../../assets/LOGO.png';
 
-const StyledLink = styled(Link)`
+const StyledNavLink = styled(NavLink)`
   padding: 10px;
   color: #ff6060;
   text-decoration: none;
   font-size: 24px;
   ${(props) => props.$isFullLink && `color: white; border-radius: 30px; background-color: #5843E4;`}
   ${(props) => props.$isAccueil && `margin-right: 20px;`}
+  
+   &.active {
+    text-decoration: underline;
+   }
 `;
 
 const HomeLogo = styled.img`
@@ -26,7 +30,7 @@ const NavLinkContainer = styled.div`
 const PageLink = styled.nav`
   font-family: Montserrat;
   display: flex;
-  gap: 30px; /* Increase the gap between links */
+  gap: 30px;
 `;
 
 const StyledHeader = styled.header`
@@ -37,14 +41,12 @@ function Header() {
   return (
     <StyledHeader>
       <NavLinkContainer>
-        <Link to="/">
+        <NavLink to="/">
           <HomeLogo src={DarkLogo} />
-        </Link>
+        </NavLink>
         <PageLink>
-          <StyledLink to="/" $isAccueil>
-            Accueil
-          </StyledLink>
-          <StyledLink to="/about">A Propos</StyledLink>
+          <StyledNavLink to="/" $isAccueil activeClassName="active">Accueil</StyledNavLink>
+          <StyledNavLink to="/about" activeClassName="active">A Propos</StyledNavLink>
         </PageLink>
       </NavLinkContainer>
     </StyledHeader>
