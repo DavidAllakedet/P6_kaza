@@ -1,21 +1,32 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import singleImage from '../../assets/Background.png';
+import mobileImage from '../../assets/MobileBackground.png'; // Replace with your mobile image
 import CollapseButton from '../../assets/CollapseButton.svg';
 
 const CarouselContainer = styled.div`
   position: relative;
   margin: auto;
-  width: 1240px;
+  max-width: 1240px;
   height: 415px;
   overflow: hidden;
   border-radius: 20px;
+
+  @media screen and (max-width: 600px) {
+    width: 335px;
+    height: 255px;
+  }
 `;
 
 const CarouselImage = styled.img`
   height: 100%;
   width: 100%;
   object-fit: cover;
+
+  @media screen and (max-width: 600px) {
+    width: 335px;
+    height: 255px;
+  }
 `;
 
 const CarouselButtons = styled.div`
@@ -24,61 +35,54 @@ const CarouselButtons = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 600px) {
+    width: 335px;
+  }
 `;
 
 const CarouselButton = styled.div`
-background-color: transparent;
-cursor: pointer;
-height: 80px;
-display: flex;
-align-items: center;
-&:hover {
-  opacity: 0.8;
-}
+  background-color: transparent;
+  cursor: pointer;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  &:hover {
+    opacity: 0.8;
+  }
 
-img {
-  width: 100px;
-  height: 100px;
-}
-`;
+  img {
+    width: 100px;
+    height: 100px;
+  }
 
-const CarouselP = styled.p`
-  position: absolute;
-  right: 50%;
-  bottom: 0px;
-  color: white;
+  @media screen and (max-width: 600px) {
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
 `;
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const images = [singleImage];
-
-  const goToPrevSlide = () => {
-    setCurrentIndex((index) => (index === 0 ? images.length - 1 : index - 1));
-  };
-
-  const goToNextSlide = () => {
-    setCurrentIndex((index) => (index === images.length - 1 ? 0 : index + 1));
-  };
-
   return (
     <CarouselContainer>
-      <CarouselImage src={images[currentIndex]} alt={`Image ${currentIndex + 1}`} />
+      <CarouselImage
+        src={window.innerWidth <= 600 ? mobileImage : singleImage}
+        alt="Image"
+      />
 
       <CarouselButtons>
-        <CarouselButton onClick={goToPrevSlide}>
+        <CarouselButton>
           <img src={CollapseButton} alt="Previous" style={{ transform: 'rotate(-90deg)' }} />
         </CarouselButton>
 
-        <CarouselButton onClick={goToNextSlide}>
+        <CarouselButton>
           <img src={CollapseButton} alt="Next" style={{ transform: 'rotate(90deg)' }} />
         </CarouselButton>
       </CarouselButtons>
 
-      <CarouselP>
-        {currentIndex + 1}/{images.length}
-      </CarouselP>
+     
     </CarouselContainer>
   );
 };

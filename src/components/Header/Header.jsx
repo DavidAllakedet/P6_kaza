@@ -3,20 +3,29 @@ import styled from 'styled-components';
 import DarkLogo from '../../assets/LOGO.png';
 
 const StyledNavLink = styled(NavLink)`
-  padding: 10px;
   color: #ff6060;
   text-decoration: none;
   font-size: 24px;
-  ${(props) => props.$isFullLink && `color: white; border-radius: 30px; background-color: #5843E4;`}
-  ${(props) => props.$isAccueil && `margin-right: 20px;`}
   
    &.active {
     text-decoration: underline;
    }
-`;
+
+   @media screen and (max-width: 600px) {
+    
+    font-size: 12px;
+    padding:0;
+    text-transform: uppercase;
+  `;
 
 const HomeLogo = styled.img`
   height: 70px;
+
+  @media screen and (max-width: 600px) {
+    width: 145px;
+    height: 46.881px;
+    flex-shrink: 0;
+    
 `;
 
 const NavLinkContainer = styled.div`
@@ -25,16 +34,31 @@ const NavLinkContainer = styled.div`
   width: 1240px;
   justify-content: space-between;
   align-items: center;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: row;
+    height: auto;
+    width:335px;
+    padding: 30px 0;
 `;
 
 const PageLink = styled.nav`
   font-family: Montserrat;
   display: flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: space-between;
   gap: 30px;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: row;
+    gap: 20px;
 `;
 
 const StyledHeader = styled.header`
   text-align: center;
+
+
 `;
 
 function Header() {
@@ -45,7 +69,7 @@ function Header() {
           <HomeLogo src={DarkLogo} />
         </NavLink>
         <PageLink>
-          <StyledNavLink to="/" $isAccueil activeClassName="active">Accueil</StyledNavLink>
+          <StyledNavLink to="/" activeClassName="active">Accueil</StyledNavLink>
           <StyledNavLink to="/about" activeClassName="active">A Propos</StyledNavLink>
         </PageLink>
       </NavLinkContainer>
@@ -54,3 +78,5 @@ function Header() {
 }
 
 export default Header;
+
+

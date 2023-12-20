@@ -17,6 +17,16 @@ const CardsContainer = styled.div`
   margin-bottom: 50px;
   border-radius: 30px;
   font-family: Montserrat;
+
+  @media screen and (max-width: 600px){
+    display: flex;
+    flex-direction:column;
+    width:335px;
+    gap: 20px;
+    padding: 0;
+    align-items: center;
+    justify-items: center;
+
 `;
 
 const CardConst = styled.div`
@@ -25,7 +35,9 @@ const CardConst = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
-  //padding: 50px 0;
+
+  @media screen and (max-width: 600px){
+    gap:20px;
 `;
 
 const HeaderFooterdiv = styled.div`

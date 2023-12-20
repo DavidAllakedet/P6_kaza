@@ -6,18 +6,26 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 
 const AccordeonContener = styled.section`
-  height: 100%;
-  display: grid;
-  place-items: center;
   font-family: Montserrat;
-  gap: 15px;
+  padding: 15px;
+  height: auto;
+
+  @media screen and (max-width: 600px) {
+    padding: 0;
+  }
 `;
 
 const Accordeon = styled.div`
-  padding: 20px;
-  margin: 20px;
+  padding: 0;
+  margin: 0;
   max-width: 1025px;
   gap: 15px;
+
+  @media screen and (max-width: 600px) {
+    margin: 0;
+    padding: 0;
+    max-width: 335px;
+  }
 `;
 
 const HeaderFooterdiv = styled.div`
@@ -25,6 +33,21 @@ const HeaderFooterdiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 0; 
+
+  @media screen and (max-width: 600px) {
+    height: auto;
+    margin: 0;
+    gap: 0;
+    padding: 0;
+  }
+`;
+
+const AccordeonItemsWrapper = styled.div`
+  ${Accordeon} {
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 const collapseData = [
@@ -60,7 +83,6 @@ function About() {
     2: false,
     3: false,
     4: false,
-   
   });
 
   const toggle = (id) => {
@@ -72,22 +94,24 @@ function About() {
 
   return (
     <HeaderFooterdiv>
-    <Header />
-    <AccordeonContener>
+      <Header />
       <Banner page="About" />
-      <Accordeon>
-        {collapseData.map((data) => (
-          <AccordeonItems
-            key={data.id}
-            isOpen={accordeonStates[data.id]}
-            title={data.title}
-            description={data.description}
-            toggle={() => toggle(data.id)}
-          />
-        ))}
-      </Accordeon>
-    </AccordeonContener>
-    <Footer />
+      <AccordeonContener>
+        <AccordeonItemsWrapper>
+          <Accordeon>
+            {collapseData.map((data) => (
+              <AccordeonItems
+                key={data.id}
+                isOpen={accordeonStates[data.id]}
+                title={data.title}
+                description={data.description}
+                toggle={() => toggle(data.id)}
+              />
+            ))}
+          </Accordeon>
+        </AccordeonItemsWrapper>
+      </AccordeonContener>
+      <Footer />
     </HeaderFooterdiv>
   );
 }

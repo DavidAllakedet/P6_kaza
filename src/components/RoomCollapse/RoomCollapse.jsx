@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ReactComponent as IconeFleche } from '../../assets/arrow_back.svg';
 
 const CollapseContainer = styled.div`
+display:flex;
+flex-direction:column;
   width: 100%;
 `;
 
 const CollapseC = styled.div`
   background: #ff6060;
-  padding: 0 50px;
+  padding: 0px 20px 0px 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.3s ease;
-  height: 40px;
+ 
   &:hover {
     background-color: #e04f4f;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 0px 20px 0px 10px;
+    
   }
 `;
 
@@ -25,6 +32,10 @@ const TitleP = styled.p`
   font-size: 22px;
   font-weight: 600;
   color: white;
+
+  @media screen and (max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 
 const DescC = styled.div`
@@ -66,6 +77,11 @@ const DescC = styled.div`
   &.fade-out {
     animation: fadeOut 0.5s ease;
   }
+
+  @media screen and (max-width: 600px) {
+    
+    padding: ${(props) => (props.isOpened ? '10px' : '0 10px')};
+  }
 `;
 
 const IconContainer = styled.div`
@@ -73,7 +89,7 @@ const IconContainer = styled.div`
   align-items: center;
 `;
 
-const rotateAnimation = (id) => `
+const rotateAnimation = (id) => css`
   @keyframes rotate-${id} {
     from {
       transform: rotate(0deg);
@@ -85,12 +101,20 @@ const rotateAnimation = (id) => `
 `;
 
 const StyledIconeFleche = styled(IconeFleche)`
-  font-size: 80px;
+width: 32px;
+height: 32px;
   transition: transform 0.5s ease;
   ${({ id }) => id && rotateAnimation(id)}
   transform: ${(props) => (props.rotate ? 'rotate(-180deg)' : 'rotate(0deg)')};
   animation: ${({ id }) => id && `rotate-${id}`} 0.5s ease;
+
+  @media screen and (max-width: 600px) {
+    
+    width: 22px;
+    height: 22px;
+  }
 `;
+
 const AccordeonItems = ({ title, description }) => {
   const [isOpened, setIsOpened] = useState(false);
   const [initialRender, setInitialRender] = useState(true);

@@ -31,7 +31,6 @@ const BannerDiv = styled.div`
   }
 
   ${props => {
-    //console.log('Page:', props.page);
     if (props.page === 'About') {
       return `
         &:before {
@@ -48,18 +47,43 @@ const BannerDiv = styled.div`
       return '';
     }
   }}
+
+  @media screen and (max-width: 600px){
+    width: 335px;
+    padding: 10px;
+    height: 111px;
+    border-radius: 15px;
+    text-align: start;
+  //align-items:start ;
+  justify-content: start;
+  }
 `;
+
+
 const BannerTitle = styled.div`
   position: absolute;
   font-size: 50px;
   color: white;
-  font-family:Montserrat;
+  font-family: Montserrat;
+  white-space: nowrap;
+
+  @media screen and (max-width: 600px){
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    white-space: pre-line; 
+  }
 `;
 
 function Banner(props) {
   return (
     <BannerDiv page={props.page}>
-      {props.page !== 'About' && <BannerTitle> Chez vous, partout et ailleurs</BannerTitle>}
+      {props.page !== 'About' && (
+         <BannerTitle>
+         Chez vous,
+         {'\n'} partout et ailleurs
+       </BannerTitle>
+      )}
     </BannerDiv>
   );
 }

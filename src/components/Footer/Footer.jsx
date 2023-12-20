@@ -6,8 +6,7 @@ function Footer() {
 
   const FooterDiv = styled(Link)`
   Display:flex;
-  margin:0;
-  padding:0;
+  padding: 50px 0;
   width:100%;
   flex-direction: column;
   align-items:center;
@@ -15,17 +14,39 @@ function Footer() {
   font-family: Montserrat;
   color: white;
   text-decoration: none;
-  font-size: 24px;
+  gap:30px;
   background-color: black;
+
+  @media screen and (max-width: 600px){
+    margin:0;
+    width: 100%;
+    font-size: 16px;
+`
+
+const FooterText = styled.div`
+font-size: 24px;
+//padding:30px;
+white-space: nowrap;
+
+@media screen and (max-width: 600px) {
+  
+  //adding: 0;
+  font-size: 12px;
+  white-space: pre-line; 
 `
 const FooterLogo = styled.img`
   padding: 30px;
   height: 70px;
+  
+  @media screen and (max-width: 600px) {
+  
+    padding: 0;
+    height:40px;
 `
   return (
     <FooterDiv >
-      <FooterLogo src={DarkLogo} alt="Logo du site" className="footer__logo" />
-      <p className="footer__right">© 2020 Kasa, All rights reserved</p>
+      <FooterLogo src={DarkLogo} alt="Logo du site" />
+      <FooterText >© 2020 Kasa. All{'\n'} rights reserved</FooterText>
     </FooterDiv>
   )
 }

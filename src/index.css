@@ -1,7 +1,9 @@
+/* Styles de base */
+
 body {
   max-width: 1440px;
-  margin: 0 auto; 
-  padding: 0 50px; 
+  margin: 0 auto;
+  padding: 0 50px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,4 +14,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Pour les écrans jusqu'à 600px de large */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 0;
+    margin:0;
+  }
 }

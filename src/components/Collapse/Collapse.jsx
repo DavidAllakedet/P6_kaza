@@ -4,6 +4,11 @@ import { ReactComponent as IconeFleche } from '../../assets/arrow_back.svg';
 
 const CollapseContainer = styled.div`
   padding: 10px;
+
+  @media screen and (max-width: 600px) {
+    padding: 20px 0;
+    width: 100%;
+  }
 `;
 
 const CollapseC = styled.div`
@@ -13,10 +18,15 @@ const CollapseC = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: background-color 0.3s ease;
+
   &:hover {
     background-color: #e04f4f;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding: 0 20px;
   }
 `;
 
@@ -24,6 +34,11 @@ const TitleP = styled.p`
   font-size: 22px;
   font-weight: 600;
   color: white;
+
+  @media screen and (max-width: 600px){
+    font-size: 14px;
+    font-weight: 400;
+  }
 `;
 
 const DescC = styled.div`
@@ -33,7 +48,9 @@ const DescC = styled.div`
   max-height: ${(props) => (props.isOpen ? '1000px' : '0')};
   overflow: hidden;
   opacity: ${(props) => (props.isOpen ? '1' : '0')};
-  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease; /* Transition pour max-height et padding */
+  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
+
+  animation: ${(props) => (props.isOpen ? 'fadeIn' : 'fadeOut')} 0.5s ease;
 
   @keyframes fadeIn {
     from {
@@ -53,18 +70,24 @@ const DescC = styled.div`
     }
     to {
       opacity: 0;
-      transform: translateY(-10px); /* Montez pendant la fermeture */
+      transform: translateY(-10px); 
     }
   }
 
-  animation: ${(props) => (props.isOpen ? 'fadeIn' : 'fadeOut')} 0.5s ease; /* Animation pour l'ouverture et la fermeture */
+  animation: ${(props) => (props.isOpen ? 'fadeIn' : 'fadeOut')} 0.5s ease; 
+
+  @media screen and (max-width: 600px) {
+    padding: ${(props) => (props.isOpen ? '20px' : '0 10px')};
+  }
+
+  }
 `;
 
 const Anim = styled.div`
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(-20px); /* Ajustez cette ligne pour définir la position de départ verticale */
+      transform: translateY(-20px); 
     }
     to {
       opacity: 1;
@@ -79,17 +102,20 @@ const Anim = styled.div`
     }
     to {
       opacity: 0;
-      transform: translateY(-20px); /* Ajustez cette ligne pour définir la position finale verticale */
+      transform: translateY(-20px); 
     }
   }
 
   opacity: ${(props) => (props.isOpen ? '1' : '0')};
-  transition: opacity 1s ease; /* Transition pour l'opacité */
+  transition: opacity 1s ease; 
 
   animation: ${(props) =>
-    props.isOpen ? 'fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1)' : 'fadeOut 1s ease'}; /* Utilisation de cubic-bezier pour ralentir l'ouverture */
-`;
+    props.isOpen ? 'fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1)' : 'fadeOut 1s ease'};
 
+    @media screen and (max-width: 600px) {
+    padding: ${(props) => (props.isOpen ? '20px' : '0 10px')};
+  }
+`;
 
 const IconContainer = styled.div`
   display: flex;
@@ -113,8 +139,10 @@ const StyledIconeFleche = styled(IconeFleche)`
   ${({ id }) => id && rotateAnimation(id)}
   transform: ${(props) => (props.rotate ? 'rotate(-180deg)' : 'rotate(0deg)')};
   animation: ${({ id }) => id && `rotate-${id}`} 0.5s ease;
-`;
 
+  @media screen and (max-width: 600px) {
+    font-size: 30px;
+`;
 
 const AccordeonItems = ({ id, isOpen, toggle, title, description }) => {
   const [isAnimating, setIsAnimating] = useState(false);
@@ -152,6 +180,5 @@ const AccordeonItems = ({ id, isOpen, toggle, title, description }) => {
     </CollapseContainer>
   );
 };
-
 
 export default AccordeonItems;
