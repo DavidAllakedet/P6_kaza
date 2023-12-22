@@ -54,8 +54,7 @@ const BannerDiv = styled.div`
     height: 111px;
     border-radius: 15px;
     text-align: start;
-  //align-items:start ;
-  justify-content: start;
+    justify-content: start;
   }
 `;
 

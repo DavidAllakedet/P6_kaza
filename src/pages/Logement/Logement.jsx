@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import React, { useState, useEffect } from 'react';
-import AccordeonItems from '../../components/RoomCollapse/RoomCollapse';
+import AccordeonItems from '../../components/LogementCollapse/LogementCollapse';
 import Carousel from '../../components/Carousel/Carousel';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
@@ -51,7 +51,6 @@ const TexteContener = styled.div`
   gap: 10px;
 
   @media screen and (max-width: 600px) {
-    
     width:335px;
   }
 `;
@@ -70,7 +69,6 @@ const Room1Content1p = styled.div`
   font-size: 20px;
 
   @media screen and (max-width: 600px) {
-    
     font-size:14px;
   }
 `;
@@ -107,11 +105,8 @@ const RoomContener2Div = styled.div`
 display:flex;
 flex-direction:row;
 justify-content: space-between;
+gap:10px;
 
-@media screen and (max-width: 600px) {
- gap:10px;
-
-}
 `;
 
 const Room2Texte = styled.div`

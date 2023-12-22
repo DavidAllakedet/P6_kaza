@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import singleImage from '../../assets/Background.png';
-import mobileImage from '../../assets/MobileBackground.png'; // Replace with your mobile image
+import singleImage from '../../assets/Logement.png';
+import mobileImage from '../../assets/MobileLogement.png';
 import CollapseButton from '../../assets/CollapseButton.svg';
 
 const CarouselContainer = styled.div`
@@ -64,6 +64,17 @@ const CarouselButton = styled.div`
   }
 `;
 
+const CarouselP = styled.p`
+  position: absolute;
+  right: 50%;
+  bottom: 0px;
+  color: white;
+
+  @media screen and (max-width: 600px) {
+    display:none;
+  }
+`;
+
 const Carousel = () => {
   return (
     <CarouselContainer>
@@ -82,7 +93,9 @@ const Carousel = () => {
         </CarouselButton>
       </CarouselButtons>
 
-     
+      <CarouselP>
+        1/4
+      </CarouselP>
     </CarouselContainer>
   );
 };

@@ -79,7 +79,6 @@ const DescC = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    
     padding: ${(props) => (props.isOpened ? '10px' : '0 10px')};
   }
 `;
@@ -109,7 +108,6 @@ height: 32px;
   animation: ${({ id }) => id && `rotate-${id}`} 0.5s ease;
 
   @media screen and (max-width: 600px) {
-    
     width: 22px;
     height: 22px;
   }
@@ -121,7 +119,7 @@ const AccordeonItems = ({ title, description }) => {
 
   useEffect(() => {
     setInitialRender(false);
-  }, []); // Exécute une fois après le rendu initial
+  }, []); 
 
   const handleRotation = () => {
     setIsOpened(!isOpened);

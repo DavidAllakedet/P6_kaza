@@ -25,12 +25,9 @@ function Footer() {
 
 const FooterText = styled.div`
 font-size: 24px;
-//padding:30px;
 white-space: nowrap;
 
 @media screen and (max-width: 600px) {
-  
-  //adding: 0;
   font-size: 12px;
   white-space: pre-line; 
 `
@@ -39,14 +36,13 @@ const FooterLogo = styled.img`
   height: 70px;
   
   @media screen and (max-width: 600px) {
-  
     padding: 0;
     height:40px;
 `
   return (
     <FooterDiv >
       <FooterLogo src={DarkLogo} alt="Logo du site" />
-      <FooterText >© 2020 Kasa. All{'\n'} rights reserved</FooterText>
+      <FooterText >© 2020 Kasa. All <br key="line-break" /> rights reserved</FooterText>
     </FooterDiv>
   )
 }
