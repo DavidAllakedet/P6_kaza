@@ -239,7 +239,7 @@ const collapseData = [
   },
 ];
 
-function Room() {
+function Logement() {
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600);
 
@@ -364,4 +364,4 @@ function Room() {
   );
 }
 
-export default Room;
+export default Logement;
