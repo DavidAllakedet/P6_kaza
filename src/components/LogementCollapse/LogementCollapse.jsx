@@ -3,10 +3,16 @@ import styled, { css } from 'styled-components';
 import { ReactComponent as IconeFleche } from '../../assets/arrow_back.svg';
 
 const CollapseContainer = styled.div`
-display:flex;
-flex-direction:column;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  height: 100%;
+
+  @media screen and (max-width: 600px) {
+    gap: 20px;
+  }
 `;
+
 
 const CollapseC = styled.div`
   background: #ff6060;
@@ -47,6 +53,7 @@ const DescC = styled.div`
   opacity: ${(props) => (props.isOpened ? '1' : '0')};
   transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
   position: relative;
+  height: 100%; 
 
   @keyframes fadeIn {
     from {
@@ -140,5 +147,8 @@ const AccordeonItems = ({ title, description }) => {
     </CollapseContainer>
   );
 };
+
+
+
 
 export default AccordeonItems;

@@ -1,61 +1,75 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useData } from '../../pages/Utiles/Hooks/Hooks';
 
-const CardLabel = styled.span`
+const Carddiv = styled.div`
+  margin-top: 30px;
+  background-color: #f6f6f6;
+  border-radius: 25px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: #5843e4;
-  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 1240px;
 `;
 
-const CardWrapper = styled.div`
+const Cardul = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 15px;
-  background-color: #ff6060;
-  border-radius: 10px;
-  width: 300px;
-  height: 300px;
-  &:hover {
-    cursor: pointer;
-    box-shadow: 2px 2px 10px #e2e3e9;
-  }
-
-  @media screen and (max-width: 600px){
-    width: 320px;
-    height: 255px;
-
-  }
-
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30px;
+  padding: 0;
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
+const CardToLogement = styled.div`
+  flex: 0 0 29.3%;
+  margin: 20px 2%;
+  height: 340px;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+`;
+
+const Cardp = styled.div`
+  display: inline;
+  position: absolute;
+  width: 120px;
+  height: auto;
+  bottom: 0;
+  left: 10px;
   color: white;
+  z-index: 2;
+  font-size: 18px;
 `;
 
-function Card({ label, title }) {
+const Cardimg = styled.img`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 10px;
+  object-fit: cover;
+  filter: brightness(0.9);
+`;
+function Card() {
+  const data = useData();
+
   return (
-    <StyledLink to={'/room'}>
-      <CardWrapper>
-        <CardLabel>{label}</CardLabel>
-        <span>{title}</span>
-      </CardWrapper>
-    </StyledLink>
+    <Carddiv>
+      <Cardul>
+        {data.map((item) => (
+          <CardToLogement key={item.id}>
+            <Link to={`/logement/${item.id}`}>
+              <Cardp>{item.title}</Cardp>
+              <Cardimg src={item.cover} alt={item.title} />
+            </Link>
+          </CardToLogement>
+        ))}
+      </Cardul>
+    </Carddiv>
   );
 }
-
-Card.propTypes = {
-  label: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-Card.defaultProps = {
-  label: '',
-  title: '',
-};
 
 export default Card;
