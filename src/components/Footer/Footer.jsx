@@ -4,9 +4,10 @@ import DarkLogo from '../../assets/LOGOF.png'
 
 function Footer() {
 
-  const FooterDiv = styled(Link)`
+  const FooterDiv = styled.div`
   Display:flex;
   padding: 50px 0;
+  margin-top: 50px;
   width:100%;
   flex-direction: column;
   align-items:center;

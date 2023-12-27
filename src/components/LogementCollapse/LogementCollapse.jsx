@@ -30,7 +30,8 @@ const CollapseC = styled.div`
 
   @media screen and (max-width: 600px) {
     padding: 0px 20px 0px 10px;
-    
+    border-radius: 5px;
+    height:40px;
   }
 `;
 
@@ -46,11 +47,11 @@ const TitleP = styled.p`
 
 const DescC = styled.div`
   background-color: #f6f6f6;
-  padding: ${(props) => (props.isOpened ? '20px' : '0 20px')};
+  padding: ${(props) => (props.isopened ? '20px' : '0 20px')};
   color: #ff6060;
-  max-height: ${(props) => (props.isOpened ? '1000px' : '0')};
+  max-height: ${(props) => (props.isopened ? '1000px' : '0')};
   overflow: hidden;
-  opacity: ${(props) => (props.isOpened ? '1' : '0')};
+  opacity: ${(props) => (props.isopened ? '1' : '0')};
   transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
   position: relative;
   height: 100%; 
@@ -86,7 +87,7 @@ const DescC = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    padding: ${(props) => (props.isOpened ? '10px' : '0 10px')};
+    padding: ${(props) => (props.isopened ? '10px' : '0 10px')};
   }
 `;
 
@@ -121,15 +122,15 @@ height: 32px;
 `;
 
 const AccordeonItems = ({ title, description }) => {
-  const [isOpened, setIsOpened] = useState(false);
-  const [initialRender, setInitialRender] = useState(true);
+  const [isopened, setisopened] = useState(0);
+  const [initialrender, setinitialrender] = useState(1);
 
   useEffect(() => {
-    setInitialRender(false);
+    setinitialrender(0);
   }, []); 
 
   const handleRotation = () => {
-    setIsOpened(!isOpened);
+    setisopened(!isopened);
   };
 
   return (
@@ -137,11 +138,11 @@ const AccordeonItems = ({ title, description }) => {
       <CollapseC onClick={handleRotation}>
         <TitleP>{title}</TitleP>
         <IconContainer>
-          <StyledIconeFleche rotate={isOpened} initialRender={initialRender} />
+          <StyledIconeFleche rotate={isopened} initialrender={initialrender} />
         </IconContainer>
       </CollapseC>
 
-      <DescC isOpened={isOpened} className={isOpened ? 'fade-in' : 'fade-out'}>
+      <DescC isopened={isopened} className={isopened ? 'fade-in' : 'fade-out'}>
         {description}
       </DescC>
     </CollapseContainer>

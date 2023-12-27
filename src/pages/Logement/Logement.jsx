@@ -23,14 +23,15 @@ const RoomDiv = styled.div`
   width: 100%;
   max-width: 1240px;
   color: #ff6060;
-  padding: 50px 20px;
-  gap: 30px;
+  //padding: 50px 20px;
+  gap: 50px;
   margin: auto;
   display: flex;
   flex-direction: column;
 
   @media screen and (max-width: 600px) {
-    padding: 0;
+    padding: 0; 
+    gap: 30px;
     width: 335px;
   }
 `;
@@ -112,7 +113,7 @@ const Room2Texte = styled.div`
   font-size: 20px;
 
   @media screen and (max-width: 600px) {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 500;
   }
 `;
@@ -122,13 +123,13 @@ const Room2Cercle = styled.div`
   height: 60px;
   background-color: #c4c4c4;
   border-radius: 30px;
-  background-image: url(${props => props.imageUrl});
+  background-image: url(${props => props.imageurl});
   background-size: cover;
   background-position: center;
 
   @media screen and (max-width: 600px) {
-    width: 32px;
-    height: 32px;
+    width: 35px;
+    height: 35px;
   }
 `;
 
@@ -208,11 +209,11 @@ const EtoilesDiv = styled.div`
 `;
 
 const Etoile = styled(FontAwesomeIcon)`
-  color: ${({ index, totalStars, rating }) => (index < rating ? '#ff6060' : '#c4c4c4')};
+  color: ${({ index, totalstars, rating }) => (index < rating ? '#ff6060' : '#c4c4c4')};
   margin-right: 10px;
 
   @media screen and (max-width: 600px) {
-    font-size: 12px;
+    font-size: 14px;
     margin-right: 5px;
   }
 `;
@@ -343,7 +344,7 @@ function Logement() {
                 </Room2Texte>
 
                 {selectedLogement.host && (
-                  <Room2Cercle imageUrl={selectedLogement.host.picture}></Room2Cercle>
+                  <Room2Cercle imageurl={selectedLogement.host.picture}></Room2Cercle>
                 )}
               </RoomContener2Div>
 
@@ -352,7 +353,7 @@ function Logement() {
                   <Etoile
                     key={rangeElem.toString()}
                     index={rangeElem}
-                    totalStars={5}
+                    totalstars={5}
                     rating={selectedLogement.rating}
                     icon={faStar}
                   />
@@ -367,7 +368,7 @@ function Logement() {
                   {collapseData.map((data) => (
                     <AccordeonItems
                       key={data.id}
-                      isOpen={accordeonStates[data.section]}
+                      isopen={accordeonStates[data.section]}
                       title={data.title}
                       description={
                         data.section === 'description'

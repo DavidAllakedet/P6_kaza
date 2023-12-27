@@ -13,7 +13,7 @@ const BannerDiv = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin-bottom: 50px;
   overflow: hidden;
   position: relative;
 
@@ -50,9 +50,8 @@ const BannerDiv = styled.div`
 
   @media screen and (max-width: 600px){
     width: 335px;
-    padding: 10px;
-    height: 111px;
-    border-radius: 15px;
+    height: 120px;
+    border-radius: 10px;
     text-align: start;
     justify-content: start;
   }
@@ -60,7 +59,8 @@ const BannerDiv = styled.div`
 
 const BannerTitle = styled.div`
   position: absolute;
-  font-size: 50px;
+  font-size: 48px;
+  font-weight: 500;
   color: white;
   font-family: Montserrat;
   white-space: nowrap;
@@ -68,6 +68,7 @@ const BannerTitle = styled.div`
   @media screen and (max-width: 600px){
     font-size: 24px;
     font-style: normal;
+    padding: 10px;
     font-weight: 500;
     white-space: pre-line; 
   }

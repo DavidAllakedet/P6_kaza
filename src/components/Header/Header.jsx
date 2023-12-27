@@ -69,8 +69,8 @@ function Header() {
           <HomeLogo src={DarkLogo} />
         </NavLink>
         <PageLink>
-          <StyledNavLink to="/" activeClassName="active">Accueil</StyledNavLink>
-          <StyledNavLink to="/about" activeClassName="active">A Propos</StyledNavLink>
+          <StyledNavLink to="/" activeclassname="active">Accueil</StyledNavLink>
+          <StyledNavLink to="/about" activeclassname="active">A Propos</StyledNavLink>
         </PageLink>
       </NavLinkContainer>
     </StyledHeader>

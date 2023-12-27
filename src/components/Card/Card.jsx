@@ -4,32 +4,47 @@ import styled from 'styled-components';
 import { useData } from '../../pages/Utiles/Hooks/Hooks';
 
 const Carddiv = styled.div`
-  margin-top: 30px;
-  background-color: #f6f6f6;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  width: 1240px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+width: 100%; 
+margin: 30px 0;
+background-color: #f6f6f6;
+border-radius: 25px;
+
+@media screen and (max-width: 600px){
+  background-color:white;
+  width:340px;
+  border-radius: 10px;
+  
 `;
 
 const Cardul = styled.div`
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
-  width: 100%;
-  margin-top: 30px;
+  margin: 50px auto;
   padding: 0;
+  gap: 50px;
+
+  @media screen and (max-width: 600px){
+    width:100%;
+    grid-template-columns: repeat(1, 1fr);
+    margin:0;
 `;
 
 const CardToLogement = styled.div`
-  flex: 0 0 29.3%;
-  margin: 20px 2%;
+  width:340px;
   height: 340px;
   position: relative;
   box-sizing: border-box;
-  margin-bottom: 40px;
+  align-items:center;
+  justify-content:center;
+
+
 `;
 
 const Cardp = styled.div`
@@ -46,13 +61,20 @@ const Cardp = styled.div`
 
 const Cardimg = styled.img`
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 335px;
+  height: 320px;
   z-index: 1;
   border-radius: 10px;
   object-fit: cover;
   filter: brightness(0.9);
+
+  @media screen and (max-width: 600px){
+    width:335px;
+    height: 320px;
+  
 `;
+
+
 function Card() {
   const data = useData();
 

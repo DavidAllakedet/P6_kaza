@@ -3,11 +3,16 @@ import styled from 'styled-components';
 import { ReactComponent as IconeFleche } from '../../assets/arrow_back.svg';
 
 const CollapseContainer = styled.div`
+display:flex;
+flex-direction:column;
+//gap:30px;
   padding: 10px;
+margin-bottom: 30px;
 
   @media screen and (max-width: 600px) {
     padding: 20px 0;
     width: 100%;
+    margin: 0;
   }
 `;
 
@@ -20,6 +25,7 @@ const CollapseC = styled.div`
   cursor: pointer;
   border-radius: 10px;
   transition: background-color 0.3s ease;
+  
 
   &:hover {
     background-color: #e04f4f;
@@ -43,14 +49,14 @@ const TitleP = styled.p`
 
 const DescC = styled.div`
   background-color: #f6f6f6;
-  padding: ${(props) => (props.isOpen ? '20px' : '0 20px')};
+  padding: ${(props) => (props.isopen ? '20px' : '0 20px')};
   color: #ff6060;
-  max-height: ${(props) => (props.isOpen ? '1000px' : '0')};
+  max-height: ${(props) => (props.isopen ? '1000px' : '0')};
   overflow: hidden;
-  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  opacity: ${(props) => (props.isopen ? '1' : '0')};
   transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
 
-  animation: ${(props) => (props.isOpen ? 'fadeIn' : 'fadeOut')} 0.5s ease;
+  animation: ${(props) => (props.isopen ? 'fadeIn' : 'fadeOut')} 0.5s ease;
 
   @keyframes fadeIn {
     from {
@@ -74,10 +80,10 @@ const DescC = styled.div`
     }
   }
 
-  animation: ${(props) => (props.isOpen ? 'fadeIn' : 'fadeOut')} 0.5s ease; 
+  animation: ${(props) => (props.isopen ? 'fadeIn' : 'fadeOut')} 0.5s ease; 
 
   @media screen and (max-width: 600px) {
-    padding: ${(props) => (props.isOpen ? '20px' : '0 10px')};
+    padding: ${(props) => (props.isopen ? '20px' : '0 10px')};
   }
 
   }
@@ -106,14 +112,14 @@ const Anim = styled.div`
     }
   }
 
-  opacity: ${(props) => (props.isOpen ? '1' : '0')};
+  opacity: ${(props) => (props.isopen ? '1' : '0')};
   transition: opacity 1s ease; 
 
   animation: ${(props) =>
-    props.isOpen ? 'fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1)' : 'fadeOut 1s ease'};
+    props.isopen ? 'fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1)' : 'fadeOut 1s ease'};
 
     @media screen and (max-width: 600px) {
-    padding: ${(props) => (props.isOpen ? '20px' : '0 10px')};
+    padding: ${(props) => (props.isopen ? '20px' : '0 10px')};
   }
 `;
 
@@ -144,7 +150,7 @@ const StyledIconeFleche = styled(IconeFleche)`
     font-size: 30px;
 `;
 
-const AccordeonItems = ({ id, isOpen, toggle, title, description }) => {
+const AccordeonItems = ({ id, isopen, toggle, title, description }) => {
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -168,12 +174,12 @@ const AccordeonItems = ({ id, isOpen, toggle, title, description }) => {
       <CollapseC onClick={handleRotation}>
         <TitleP>{title}</TitleP>
         <IconContainer>
-          <StyledIconeFleche id={id} rotate={isOpen} />
+          <StyledIconeFleche id={id} rotate={isopen} />
         </IconContainer>
       </CollapseC>
 
-      <DescC isOpen={isOpen}>
-        <Anim isOpen={isOpen}>
+      <DescC isopen={isopen}>
+        <Anim isopen={isopen}>
           {description}
         </Anim>
       </DescC>

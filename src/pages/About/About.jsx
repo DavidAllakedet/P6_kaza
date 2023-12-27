@@ -102,7 +102,7 @@ function About() {
             {collapseData.map((data) => (
               <AccordeonItems
                 key={data.id}
-                isOpen={accordeonStates[data.id]}
+                isopen={accordeonStates[data.id]}
                 title={data.title}
                 description={data.description}
                 toggle={() => toggle(data.id)}
