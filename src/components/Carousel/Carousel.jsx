@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import singleImage from '../../assets/Logement.png';
-import mobileImage from '../../assets/MobileLogement.png';
 import CollapseButton from '../../assets/CollapseButton.svg';
 
 const CarouselContainer = styled.div`
   position: relative;
   margin: auto;
-  max-width: 1240px;
+  width: 1240px;
   height: 415px;
   overflow: hidden;
   border-radius: 20px;
@@ -33,7 +31,8 @@ const CarouselButtons = styled.div`
   position: absolute;
   top: 40%;
   width: 100%;
-  display: flex;
+  display:flex;
+  // display: ${({ showButtons }) => (showButtons ? 'flex' : 'none')};
   justify-content: space-between;
 
   @media screen and (max-width: 600px) {
@@ -71,36 +70,61 @@ const CarouselP = styled.p`
   color: white;
 
   @media screen and (max-width: 600px) {
-    display:none;
+    
   }
 `;
 
-const Carousel = () => {
+
+
+const Carousel = ({ itemIds }) => {
+  const [pictures, setPictures] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    setPictures(itemIds);
+  }, [itemIds]);
+
+  const goToPrevSlide = () => {
+    setCurrentIndex((index) => (index === 0 ? pictures.length - 1 : index - 1));
+  };
+
+  const goToNextSlide = () => {
+    setCurrentIndex((index) => (index === pictures.length - 1 ? 0 : index + 1));
+  };
+
   return (
     <CarouselContainer>
-      <CarouselImage
-        src={window.innerWidth <= 600 ? mobileImage : singleImage}
-        alt="Image"
-      />
+      {pictures.length > 0 ? (
+        <>
+          <CarouselImage src={pictures[currentIndex]} alt={`Image ${currentIndex + 1}`} />
 
-      <CarouselButtons>
-        <CarouselButton>
-          <img src={CollapseButton} alt="Previous" style={{ transform: 'rotate(-90deg)' }} />
-        </CarouselButton>
+          {pictures.length > 1 && ( // Vérifiez si pictures.length est supérieur à 1 avant d'afficher les boutons
+            <CarouselButtons>
+              <CarouselButton onClick={goToPrevSlide}>
+                <img src={CollapseButton} alt="Previous" style={{ transform: 'rotate(-90deg)' }} />
+              </CarouselButton>
 
-        <CarouselButton>
-          <img src={CollapseButton} alt="Next" style={{ transform: 'rotate(90deg)' }} />
-        </CarouselButton>
-      </CarouselButtons>
+              <CarouselButton onClick={goToNextSlide}>
+                <img src={CollapseButton} alt="Next" style={{ transform: 'rotate(90deg)' }} />
+              </CarouselButton>
+            </CarouselButtons>
+          )}
 
-      <CarouselP>
-        1/4
-      </CarouselP>
+          {pictures.length > 1 && (
+            <CarouselP>
+              {currentIndex + 1}/{pictures.length}
+            </CarouselP>
+          )}
+        </>
+      ) : (
+        <p>No pictures available</p>
+      )}
     </CarouselContainer>
   );
 };
 
 export default Carousel;
+
 
 
 // import { useState } from 'react'

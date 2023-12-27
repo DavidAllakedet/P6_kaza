@@ -245,6 +245,8 @@ const collapseData = [
 ];
 
 function Logement() {
+
+  const logementData = data;
   const range = [...Array(5).keys()];
   const { id } = useParams();
   const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 600);
@@ -253,9 +255,13 @@ function Logement() {
     equipement: false,
   });
 
+  const selectedLogement = logementData.find((items) => items.id === id);
+  
   const isRestoring = Object.keys(accordeonStates).length === 0;
 
-  const logementData = data;
+  
+
+  const imageIds = selectedLogement.pictures || [];
 
   useEffect(() => {
     const handleResize = () => {
@@ -291,7 +297,7 @@ function Logement() {
     localStorage.setItem('accordeonStates', JSON.stringify(accordeonStates));
   }, [accordeonStates]);
 
-  const selectedLogement = logementData.find((items) => items.id === id);
+  
 
   useEffect(() => {
     console.log('ID from params:', id);
@@ -309,7 +315,7 @@ function Logement() {
     <HeaderFooterdiv>
       <Header />
       <RoomC key={selectedLogement.id}>
-        <Carousel />
+      <Carousel itemIds={imageIds} />
         <RoomDiv>
           <RoomContener>
             <RoomContener1>
