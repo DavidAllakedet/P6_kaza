@@ -159,9 +159,6 @@ const Tag = styled.div`
     padding: 5px 5px;
     border-radius: 10px;
     font-size: 10px;
-    // width: 84px;
-    // height: 18px;
-    //flex-shrink: 0;
   }
 `;
 

@@ -58,7 +58,6 @@ const BannerDiv = styled.div`
   }
 `;
 
-
 const BannerTitle = styled.div`
   position: absolute;
   font-size: 50px;
