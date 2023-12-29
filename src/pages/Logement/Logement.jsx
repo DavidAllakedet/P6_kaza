@@ -195,6 +195,7 @@ const Accordeon = styled.div`
   @media screen and (max-width: 600px) {
     flex-direction: column;
     width: 100%;
+    gap: 20px;
   }
 `;
 
@@ -273,9 +274,7 @@ function Logement() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log('isMobile:', isMobile);
-  }, [isMobile]);
+ 
 
   const toggle = (section) => {
     setAccordeonStates((prevState) => ({
@@ -295,13 +294,7 @@ function Logement() {
     localStorage.setItem('accordeonStates', JSON.stringify(accordeonStates));
   }, [accordeonStates]);
 
-  
 
-  useEffect(() => {
-    console.log('ID from params:', id);
-  }, [id]);
-
-  console.log('Selected room:', selectedLogement);
 
   if (!selectedLogement) {
     return <div>Logement non trouvé</div>;

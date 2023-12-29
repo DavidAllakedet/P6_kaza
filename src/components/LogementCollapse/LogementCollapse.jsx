@@ -8,9 +8,6 @@ const CollapseContainer = styled.div`
   width: 100%; 
   height: 100%;
 
-  @media screen and (max-width: 600px) {
-    gap: 20px;
-  }
 `;
 
 
@@ -88,6 +85,7 @@ const DescC = styled.div`
 
   @media screen and (max-width: 600px) {
     padding: ${(props) => (props.isopened ? '10px' : '0 10px')};
+    font-size: 12px;
   }
 `;
 

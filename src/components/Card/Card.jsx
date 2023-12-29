@@ -49,14 +49,15 @@ const CardToLogement = styled.div`
 
 const Cardp = styled.div`
   display: inline;
-  position: absolute;
-  width: 120px;
-  height: auto;
-  bottom: 0;
+   position: absolute;
+   width: 120px;
+   height: auto;
+   bottom: 20px;
   left: 10px;
-  color: white;
-  z-index: 2;
-  font-size: 18px;
+   color: white;
+   z-index: 2;
+   font-size: 18px;
+   font-weight:500;
 `;
 
 const Cardimg = styled.img`
