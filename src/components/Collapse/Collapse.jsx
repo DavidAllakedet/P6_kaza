@@ -1,190 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { ReactComponent as IconeFleche } from '../../assets/arrow_back.svg';
+import button from '../../assets/CollapseButton.svg';
+import '../../styles/About.scss';
+import React from 'react';
 
-const CollapseContainer = styled.div`
-display:flex;
-flex-direction:column;
-//gap:30px;
-  padding: 10px;
-margin-bottom: 30px;
-
-  @media screen and (max-width: 600px) {
-    padding: 20px 0;
-    width: 100%;
-    margin: 0;
-  }
-`;
-
-const CollapseC = styled.div`
-  background: #ff6060;
-  padding: 0 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: background-color 0.3s ease;
-  
-
-  &:hover {
-    background-color: #e04f4f;
-  }
-
-  @media screen and (max-width: 600px) {
-    padding: 0 20px;
-  }
-`;
-
-const TitleP = styled.p`
-  font-size: 22px;
-  font-weight: 600;
-  color: white;
-
-  @media screen and (max-width: 600px){
-    font-size: 14px;
-    font-weight: 400;
-  }
-`;
-
-const DescC = styled.div`
-  background-color: #f6f6f6;
-  padding: ${(props) => (props.isopen ? '20px' : '0 20px')};
-  color: #ff6060;
-  max-height: ${(props) => (props.isopen ? '1000px' : '0')};
-  overflow: hidden;
-  opacity: ${(props) => (props.isopen ? '1' : '0')};
-  transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
-
-  animation: ${(props) => (props.isopen ? 'fadeIn' : 'fadeOut')} 0.5s ease;
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-10px); 
-    }
-  }
-
-  animation: ${(props) => (props.isopen ? 'fadeIn' : 'fadeOut')} 0.5s ease; 
-
-  @media screen and (max-width: 600px) {
-    padding: ${(props) => (props.isopen ? '20px' : '0 10px')};
-  }
-
-  }
-`;
-
-const Anim = styled.div`
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px); 
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-20px); 
-    }
-  }
-
-  opacity: ${(props) => (props.isopen ? '1' : '0')};
-  transition: opacity 1s ease; 
-
-  animation: ${(props) =>
-    props.isopen ? 'fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1)' : 'fadeOut 1s ease'};
-
-    @media screen and (max-width: 600px) {
-    padding: ${(props) => (props.isopen ? '20px' : '0 10px')};
-  }
-`;
-
-const IconContainer = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const rotateAnimation = (id) => `
-  @keyframes rotate-${id} {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(180deg);
-    }
-  }
-`;
-
-const StyledIconeFleche = styled(IconeFleche)`
-  font-size: 80px;
-  transition: transform 0.5s ease;
-  ${({ id }) => id && rotateAnimation(id)}
-  transform: ${(props) => (props.rotate ? 'rotate(-180deg)' : 'rotate(0deg)')};
-  animation: ${({ id }) => id && `rotate-${id}`} 0.5s ease;
-
-  @media screen and (max-width: 600px) {
-    font-size: 30px;
-`;
-
-const AccordeonItems = ({ id, isopen, toggle, title, description }) => {
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    if (isAnimating) {
-      const timeout = setTimeout(() => {
-        setIsAnimating(false);
-      }, 500);
-      return () => clearTimeout(timeout);
-    }
-  }, [isAnimating]);
-
-  const handleRotation = () => {
-    if (!isAnimating) {
-      toggle();
-      setIsAnimating(true);
-    }
+function Collapse({ id, open, setOpen, title, text }) {
+  const toggleValueById = (id) => {
+    const updatedOpen = [...open];
+    updatedOpen[id] = !updatedOpen[id];
+    setOpen(updatedOpen);
   };
 
   return (
-    <CollapseContainer>
-      <CollapseC onClick={handleRotation}>
-        <TitleP>{title}</TitleP>
-        <IconContainer>
-          <StyledIconeFleche id={id} rotate={isopen} />
-        </IconContainer>
-      </CollapseC>
+    <div className="aboutelements">
+      <div className="aboutelements__aboutelement">
+        <p>{title}</p>
+        <button
+          className={`aboutelements__aboutelement--button ${open[id] ? 'activebutton' : ''}`}
+          onClick={() => toggleValueById(id)}
+        >
+          <img className="button--logo" src={button} alt="button de colapse" />
+        </button>
+      </div>
 
-      <DescC isopen={isopen}>
-        <Anim isopen={isopen}>
-          {description}
-        </Anim>
-      </DescC>
-    </CollapseContainer>
+      <div className={`aboutelement__collapse ${open[id] ? 'bar' : 'foo'}`}>
+        <div className={`aboutelement__text ${open[id] ? 'visible' : ''}`}>
+          {text}
+        </div>
+      </div>
+    </div>
   );
-};
+}
 
-export default AccordeonItems;
+
+export default Collapse()

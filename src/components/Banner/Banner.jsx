@@ -1,89 +1,16 @@
-import styled from 'styled-components';
-import backgroundImageAbout from "../../assets/BannerBg2.png";
-import backgroundImageHome from "../../assets/BannerBg.png";
-
-const BannerDiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 1240px;
-  height: 250px;
-  background-color: #f6f6f6;
-  border-radius: 25px;
-  color: red;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 50px;
-  overflow: hidden;
-  position: relative;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-position: right;
-    background-repeat: no-repeat;
-    background-size: cover; 
-    filter: brightness(0.75);
-  }
-
-  ${props => {
-    if (props.page === 'About') {
-      return `
-        &:before {
-          background-image: url(${backgroundImageAbout});
-        }
-      `;
-    } else if (props.page === 'Home') {
-      return `
-        &:before {
-          background-image: url(${backgroundImageHome});
-        }
-      `;
-    } else {
-      return '';
-    }
-  }}
-
-  @media screen and (max-width: 600px){
-    width: 335px;
-    height: 120px;
-    border-radius: 10px;
-    text-align: start;
-    justify-content: start;
-  }
-`;
-
-const BannerTitle = styled.div`
-  position: absolute;
-  font-size: 48px;
-  font-weight: 500;
-  color: white;
-  font-family: Montserrat;
-  white-space: nowrap;
-
-  @media screen and (max-width: 600px){
-    font-size: 24px;
-    font-style: normal;
-    padding: 10px;
-    font-weight: 500;
-    white-space: pre-line; 
-  }
-`;
+import React from 'react';
+import '../../styles/Banner.scss';
 
 function Banner(props) {
   return (
-    <BannerDiv page={props.page}>
+    <div className={`BannerDiv ${props.page}`}>
       {props.page !== 'About' && (
-         <BannerTitle>
-         Chez vous,
-         {'\n'} partout et ailleurs
-       </BannerTitle>
+        <div className="BannerTitle">
+          Chez vous,
+          {'\n'} partout et ailleurs
+        </div>
       )}
-    </BannerDiv>
+    </div>
   );
 }
 

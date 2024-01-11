@@ -1,0 +1,73 @@
+@import 'Couleurs';
+
+$backgroundImageAbout: url('../assets/BannerBg2.png');
+$backgroundImageHome: url('../assets/BannerBg.png');
+
+$mobile-breakpoint: 600px;
+
+.BannerDiv {
+  display: flex;
+  flex-direction: row;
+  width: 1240px;
+  height: 250px;
+  background-color: $secondary-color;
+  border-radius: 25px;
+  color: $primary-color;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  overflow: hidden;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    filter: brightness(0.75);
+  }
+
+  &.About {
+    &:before {
+      background-image: $backgroundImageAbout;
+    }
+  }
+
+  &.Home {
+    &:before {
+      background-image: $backgroundImageHome;
+    }
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+
+    width: 335px;
+    margin: 0;
+    height: 120px;
+    border-radius: 10px;
+    text-align: start;
+    justify-content: start;
+  }
+}
+
+.BannerTitle {
+  position: absolute;
+  font-size: 48px;
+  font-weight: 500;
+  color: white;
+  font-family: Montserrat;
+  white-space: nowrap;
+
+  @media screen and (max-width: 600px) {
+    font-size: 24px;
+    font-style: normal;
+    padding: 10px;
+    white-space: pre-line;
+  }
+}

@@ -1,0 +1,44 @@
+@import 'Couleurs';
+.HeaderFooterdiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 600px) {
+    
+  }
+}
+.footer {
+  width: 100%;
+  margin-top: 50px;
+  padding:50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+  &__logo {
+    margin-top: 60px;
+    filter: brightness(400%);
+    width: 145px;
+    height: 46px;
+    margin-bottom: 20px;
+  }
+  &__text {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 375px;
+    padding: 0;
+   
+    &__text {
+      margin-bottom: 60px;
+      margin-top: -10px;
+      font-size: 12px;
+      width: 100px;
+    }
+  }
+}

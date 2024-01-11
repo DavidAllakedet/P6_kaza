@@ -1,332 +1,125 @@
-import styled from 'styled-components';
+
+
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import AccordeonItems from '../../components/LogementCollapse/LogementCollapse';
+import { useParams,  } from 'react-router-dom';
+//import AccordeonItems from '../../components/LogementCollapse/LogementCollapse';
 import Carousel from '../../components/Carousel/Carousel';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import Etoiles from '../../components/Etoiles/Etoiles';
 import data from '../../data/data.json';
 
-const RoomC = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  @media screen and (max-width: 600px) {
-    padding-bottom: 30px;
-    width: 335px;
-  }
-`;
+import '../../styles/Logement.scss'; // Import the generated CSS file
+//import '../../styles/About.scss';
+//import { useData } from '../../pages/Utiles/Hooks/Hooks';
 
-const RoomDiv = styled.div`
-  width: 100%;
-  max-width: 1240px;
-  color: #ff6060;
-  //padding: 50px 20px;
-  gap: 50px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+import Collapse from '../../components/Collapse/Collapse';
+import { useNavigate } from 'react-router-dom'
 
-  @media screen and (max-width: 600px) {
-    padding: 0; 
-    gap: 30px;
-    width: 335px;
-  }
-`;
 
-const RoomContener1 = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  font-family: Montserrat;
+function Logement () {
 
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-    width: 335px;
-  }
-`;
-
-const Room1Content1 = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 10px;
-
-  @media screen and (max-width: 600px) {
-    width: 335px;
-  }
-`;
-
-const Room1Content1h1 = styled.div`
-  font-size: 36px;
-  font-weight: 500;
-  @media screen and (max-width: 600px) {
-    font-size: 18px;
-  }
-`;
-
-const Room1Content1p = styled.div`
-  font-size: 20px;
-
-  @media screen and (max-width: 600px) {
-    font-size: 14px;
-  }
-`;
-
-const RoomContener = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-family: Montserrat;
-
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-    width: 335px;
-    gap: 30px;
-  }
-`;
-
-const RoomContener2 = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 30px;
-  font-family: Montserrat;
-
-  @media screen and (max-width: 600px) {
-    flex-direction: row-reverse;
-    width: 335px;
-  }
-`;
-
-const RoomContener2Div = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 10px;
-`;
-
-const Room2Texte = styled.div`
-  font-size: 20px;
-
-  @media screen and (max-width: 600px) {
-    font-size: 14px;
-    font-weight: 500;
-  }
-`;
-
-const Room2Cercle = styled.div`
-  width: 60px;
-  height: 60px;
-  background-color: #c4c4c4;
-  border-radius: 30px;
-  background-image: url(${props => props.imageurl});
-  background-size: cover;
-  background-position: center;
-
-  @media screen and (max-width: 600px) {
-    width: 35px;
-    height: 35px;
-  }
-`;
-
-const Tagdiv = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  gap: 10px;
-
-  @media screen and (max-width: 600px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 335px;
-  }
-`;
-
-const Tag = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: #ff6060;
-  padding: 5px 40px;
-  border-radius: 10px;
-  font-family: Montserrat;
-
-  @media screen and (max-width: 600px) {
-    padding: 5px 5px;
-    border-radius: 10px;
-    font-size: 10px;
-  }
-`;
-
-const AccordeonDiv = styled.div`
-  display: flex;
-  width: 100%;
-
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-`;
-
-const AccordeonContener = styled.section`
-  display: flex;
-  justify-content: space-between;
-
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-`;
-
-const Accordeon = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  font-family: Montserrat;
-  gap: 4%;
-
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-    width: 100%;
-    gap: 20px;
-  }
-`;
-
-const EtoilesDiv = styled.div`
-  display: flex;
-  font-size: 20px;
-
-  @media screen and (max-width: 600px) {
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-const Etoile = styled(FontAwesomeIcon)`
-  color: ${({ index, totalstars, rating }) => (index < rating ? '#ff6060' : '#c4c4c4')};
-  margin-right: 10px;
-
-  @media screen and (max-width: 600px) {
-    font-size: 14px;
-    margin-right: 5px;
-  }
-`;
-
-const HeaderFooterdiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  @media screen and (max-width: 600px) {
-    flex-direction: column;
-  }
-`;
-
-const collapseData = [
-  {
-    id: 1,
-    section: 'description',
-    title: 'Description',
-  },
-  {
-    id: 2,
-    section: 'equipement',
-    title: 'Equipement',
-    equipments: [],
-  },
-];
-
-function Logement() {
-
+  const [openInfo1, setOpenInfo1] = useState(false);
+  const [openInfo2, setOpenInfo2] = useState(false);
+  
+  //let data = useData()
+  const param = useParams()
+  const [openInfo, setOpenInfo] = useState([false, false])
+  const roomItem = data.find((item) => param.id === item.id)
   const logementData = data;
-  const range = [...Array(5).keys()];
+  const navigate = useNavigate()
+  // const range = [...Array(5).keys()];
   const { id } = useParams();
-  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 600);
-  const [accordeonStates, setAccordeonStates] = useState({
-    description: false,
-    equipement: false,
-  });
+  //const [ setIsMobile] = useState(typeof window !== 'undefined' && window.innerWidth <= 600);
+  // const [accordeonStates, setAccordeonStates] = useState({
+  //   description: false,
+  //   equipement: false,
+  // });
 
   const selectedLogement = logementData.find((items) => items.id === id);
-  
-  const isRestoring = Object.keys(accordeonStates).length === 0;
 
-  
+  // const isRestoring = Object.keys(accordeonStates).length === 0;
 
-  const imageIds = selectedLogement.pictures || [];
+  const imageIds = selectedLogement?.pictures || [];
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(typeof window !== 'undefined' && window.innerWidth <= 600);
-    };
+//  // const rating = data.selectedLogement.rating; // Adjust this based on your data structure
 
-    window.addEventListener('resize', handleResize);
+//     // Récupérer la valeur de la note depuis data.json
+//     const activeStars = selectedLogement?.host?.rating || 0;
 
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+useEffect(() => {
+  if (roomItem === undefined) navigate('/Error')
+}, [roomItem, navigate])
 
- 
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsMobile(typeof window !== 'undefined' && window.innerWidth <= 600);
+  //   };
 
-  const toggle = (section) => {
-    setAccordeonStates((prevState) => ({
-      ...prevState,
-      [section]: !prevState[section],
-    }));
-  };
+  //   window.addEventListener('resize', handleResize);
 
-  useEffect(() => {
-    const storedAccordeonStates = JSON.parse(localStorage.getItem('accordeonStates'));
-    if (storedAccordeonStates) {
-      setAccordeonStates(storedAccordeonStates);
-    }
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
 
-  useEffect(() => {
-    localStorage.setItem('accordeonStates', JSON.stringify(accordeonStates));
-  }, [accordeonStates]);
+  // const toggle = (section) => {
+  //   setAccordeonStates((prevState) => ({
+  //     ...prevState,
+  //     [section]: !prevState[section],
+  //   }));
+  // };
 
+  // useEffect(() => {
+  //   const storedAccordeonStates = JSON.parse(localStorage.getItem('accordeonStates'));
+  //   if (storedAccordeonStates) {
+  //     setAccordeonStates(storedAccordeonStates);
+  //   }
+  // }, []);
 
+  // useEffect(() => {
+  //   localStorage.setItem('accordeonStates', JSON.stringify(accordeonStates));
+  // }, [accordeonStates]);
 
-  if (!selectedLogement) {
-    return <div>Logement non trouvé</div>;
-  }
-  collapseData[0].description = selectedLogement.description || '';
-  collapseData[1].equipments = selectedLogement.equipments || [];
+  // if (!selectedLogement) {
+  //   return (
+  //     <div>
+  //       <p>Error: Selected logement data not available.</p>
+  //       <Navigate to="/error" replace={true} />
+  //     </div>
+  //   );
+  // }
+  // const collapseData = [
+  //   { id: 1, section: 'description', title: 'Description', description: 'Description content' },
+  //   { id: 2, section: 'equipement', title: 'Equipement', description: 'Equipement content' },
+  // ];
+  // const description = selectedLogement.description || '';
+  // const equipments = selectedLogement.equipments || [];
 
   return (
-    <HeaderFooterdiv>
+    <div className="HeaderFooterdiv">
       <Header />
-      <RoomC key={selectedLogement.id}>
-      <Carousel itemIds={imageIds} />
-        <RoomDiv>
-          <RoomContener>
-            <RoomContener1>
-              <Room1Content1>
-                <Room1Content1h1>
-                  {selectedLogement.title}
-                </Room1Content1h1>
-                <Room1Content1p>
-                  {selectedLogement.location}
-                </Room1Content1p>
-              </Room1Content1>
-              <Tagdiv>
-                {selectedLogement.tags && selectedLogement.tags.map((tag, index) => (
-                  <Tag key={index}>{tag}</Tag>
-                ))}
-              </Tagdiv>
-            </RoomContener1>
-            <RoomContener2>
-              <RoomContener2Div>
-                <Room2Texte>
+      <div className="RoomC" key={selectedLogement.id}>
+        <Carousel itemIds={imageIds} />
+        <div className="RoomDiv">
+          <div className="RoomContener">
+            <div className="RoomContener1">
+              <div className="Room1Content1">
+                <div className="Room1Content1h1">{selectedLogement.title}</div>
+                <div className="Room1Content1p">{selectedLogement.location}</div>
+              </div>
+              <div className="Tagdiv">
+                {selectedLogement.tags &&
+                  selectedLogement.tags.map((tag, index) => (
+                    <div key={index} className="Tag">
+                      {tag}
+                    </div>
+                  ))}
+              </div>
+            </div>
+            <div className="RoomContener2">
+              <div className="RoomContener2Div">
+                <div className="Room2Texte">
                   {selectedLogement.host &&
                     selectedLogement.host.name.split(' ').map((word, index) => (
                       <React.Fragment key={index}>
@@ -334,56 +127,49 @@ function Logement() {
                         <br />
                       </React.Fragment>
                     ))}
-                </Room2Texte>
-
+                </div>
                 {selectedLogement.host && (
-                  <Room2Cercle imageurl={selectedLogement.host.picture}></Room2Cercle>
+                  <div className="Room2Cercle">
+                    <img
+                        src={selectedLogement.host.picture}
+                        alt="Host"
+                        className="HostImage" 
+                      />
+                  </div>
                 )}
-              </RoomContener2Div>
-
-              <EtoilesDiv>
-                {range.map((rangeElem) => (
-                  <Etoile
-                    key={rangeElem.toString()}
-                    index={rangeElem}
-                    totalstars={5}
-                    rating={selectedLogement.rating}
-                    icon={faStar}
-                  />
-                ))}
-              </EtoilesDiv>
-            </RoomContener2>
-          </RoomContener>
-          <AccordeonDiv>
-            {isRestoring ? null : (
-              <AccordeonContener>
-                <Accordeon>
-                  {collapseData.map((data) => (
-                    <AccordeonItems
-                      key={data.id}
-                      isopen={accordeonStates[data.section]}
-                      title={data.title}
-                      description={
-                        data.section === 'description'
-                          ? data.description
-                          : selectedLogement.equipments && (
-                              <p style={{ whiteSpace: 'pre-line' }}>
-                                {selectedLogement.equipments.join(',\n')}
-                              </p>
-                            )
-                      }
-                      toggle={() => toggle(data.section)}
-                    />
-                  ))}
-                </Accordeon>
-              </AccordeonContener>
-            )}
-          </AccordeonDiv>
-        </RoomDiv>
-      </RoomC>
+              </div>
+              <div className="EtoilesDiv">
+            <Etoiles LogementRating={selectedLogement.rating} />
+          </div>
+            </div>
+          </div>
+          <div className="roominfo3">
+        <Collapse
+          id={0}
+          open={openInfo1}
+          setOpen={setOpenInfo1}
+          text={<p>{roomItem.description}</p>}
+          title="Description"
+        />
+        <Collapse
+          id={1}
+          open={openInfo2}
+          setOpen={setOpenInfo2}
+          text={
+            <ul>
+              {roomItem.equipments.map((equip, index) => (
+                <li key={index}>{equip}</li>
+              ))}
+            </ul>
+          }
+          title="Équipements"
+        />
+      </div>
+        </div>
+      </div>
       <Footer />
-    </HeaderFooterdiv>
+    </div>
   );
-}
+};
 
 export default Logement;
