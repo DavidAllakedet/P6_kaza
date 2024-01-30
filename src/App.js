@@ -27,6 +27,6 @@ function App() {
   );
 }
 
-root.render(<App />); 
+root.render(<App />); // Use root.render() for the initial render
 
 export default App;

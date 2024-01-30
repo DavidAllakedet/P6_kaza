@@ -1,6 +1,6 @@
 import React from 'react';
 //import styled from 'styled-components';
-import Card from '../../components/Card/Card';
+import Cards from '../../components/Card/Card';
 import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
@@ -30,7 +30,7 @@ function Home() {
       <Header />
       <div className="CardConst">
         <Banner page="Home" />
-        <Card />
+        <Cards />
         
       </div>
       <Footer />
