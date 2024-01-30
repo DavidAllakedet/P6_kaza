@@ -1,4 +1,3 @@
-// Carousel.js
 
 import React, { useState, useEffect } from 'react';
 import CollapseButton from '../../assets/CollapseButton.svg';

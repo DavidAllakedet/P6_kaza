@@ -1,5 +1,3 @@
-// CarouselStyles.scss
-
 .carousel-container {
     position: relative;
     margin: auto;
@@ -13,7 +11,7 @@
       height: 255px;
     }
   
-    // ... Autres styles
+    
   }
   
   .carousel-image {
@@ -27,7 +25,7 @@
     }
   }
   
-  // ... Autres styles
+  
   
   .carousel-buttons {
     position: absolute;
@@ -40,7 +38,6 @@
       width: 335px;
     }
   
-    // ... Autres styles
   }
   
   .carousel-button {
@@ -74,7 +71,7 @@
     color: white;
   
     @media screen and (max-width: 600px) {
-      // Styles spécifiques pour les écrans étroits
+      
     }
   }
   

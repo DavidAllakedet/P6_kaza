@@ -1,6 +1,5 @@
 import React from 'react';
 import button from '../../assets/CollapseButton.svg';
-//import '../../styles/About.scss';
 
 function Collapse({ id, open, setOpen, title, text }) {
   const toggleValueById = (id) => {

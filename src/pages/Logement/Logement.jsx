@@ -25,7 +25,7 @@ function Logement() {
   }, [selectedLogement, navigate]);
 
   if (!selectedLogement) {
-    // Retourner un composant de chargement, un message d'erreur, ou autre
+    // Retourne un message d'erreur
     return <div>id incorect...</div>;
   }
 

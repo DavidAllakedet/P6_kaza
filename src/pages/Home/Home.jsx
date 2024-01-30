@@ -1,5 +1,4 @@
 import React from 'react';
-//import styled from 'styled-components';
 import Cards from '../../components/Card/Card';
 import Banner from '../../components/Banner/Banner';
 import Header from '../../components/Header/Header';

@@ -1,9 +1,7 @@
-// Header.js
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/LOGO.png';
-import '../../styles/Header.scss'; // Importez le fichier de style si existant
+import '../../styles/Header.scss'; 
 
 function Header() {
   return (

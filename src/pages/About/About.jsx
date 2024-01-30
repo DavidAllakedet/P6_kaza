@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-//import '../../styles/Accordeon.scss';
 import '../../styles/About.scss';
 import Collapse from '../../components/Collapse/Collapse';
 import Header from '../../components/Header/Header';

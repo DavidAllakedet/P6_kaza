@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import '../../styles/Logement.scss'; // Import the generated CSS file
+import '../../styles/Logement.scss'; 
 
 function Etoiles({ LogementRating }) {
   
