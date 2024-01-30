@@ -10,19 +10,24 @@ import Collapse from '../../components/Collapse/Collapse';
 import { useNavigate } from 'react-router-dom';
 
 function Logement() {
-  const [openInfo, setOpenInfo] = useState([false, false])
+  const [openInfo, setOpenInfo] = useState([false, false]);
   const param = useParams();
-  
-  const selectedLogement = data.find((item) => param.id === item.id);
-  //const logementData = data;
   const navigate = useNavigate();
- // const { id } = useParams();
-  //const selectedLogement = logementData.find((items) => items.id === id);
+
+  const selectedLogement = data.find((item) => param.id === item.id);
   const imageIds = selectedLogement?.pictures || [];
 
   useEffect(() => {
-    if (selectedLogement === undefined) navigate('/Error');
+    if (!selectedLogement) {
+      // Redirige vers la page d'erreur si l'ID n'est pas valide
+      navigate('/Error');
+    }
   }, [selectedLogement, navigate]);
+
+  if (!selectedLogement) {
+    // Retourner un composant de chargement, un message d'erreur, ou autre
+    return <div>id incorect...</div>;
+  }
 
 
 

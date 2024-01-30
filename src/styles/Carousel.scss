@@ -1,0 +1,80 @@
+// CarouselStyles.scss
+
+.carousel-container {
+    position: relative;
+    margin: auto;
+    width: 1240px;
+    height: 415px;
+    overflow: hidden;
+    border-radius: 20px;
+  
+    @media screen and (max-width: 600px) {
+      width: 335px;
+      height: 255px;
+    }
+  
+    // ... Autres styles
+  }
+  
+  .carousel-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  
+    @media screen and (max-width: 600px) {
+      width: 335px;
+      height: 255px;
+    }
+  }
+  
+  // ... Autres styles
+  
+  .carousel-buttons {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+    @media screen and (max-width: 600px) {
+      width: 335px;
+    }
+  
+    // ... Autres styles
+  }
+  
+  .carousel-button {
+    background-color: transparent;
+    cursor: pointer;
+    height: 80px;
+    display: flex;
+    align-items: center;
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    @media screen and (max-width: 600px) {
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  
+  .carousel-p {
+    position: absolute;
+    right: 50%;
+    bottom: 0px;
+    color: white;
+  
+    @media screen and (max-width: 600px) {
+      // Styles spécifiques pour les écrans étroits
+    }
+  }
+  

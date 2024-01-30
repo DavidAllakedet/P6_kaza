@@ -6,23 +6,6 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import '../../styles/Home.scss';
 
-// const CardConst = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 50px;
-
-//   @media screen and (max-width: 600px){
-//     gap:20px;
-// `;
-
-// const HeaderFooterdiv = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-// `;
 
 function Home() {
   return (

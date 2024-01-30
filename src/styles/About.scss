@@ -1,12 +1,13 @@
 @import 'Couleurs.scss';
 
 .About {
-  width: 90%;
+  width:1240px;
   position: relative;
   margin: auto;
   background-color: white;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     margin-bottom: 20px;
+    width: 335px;
   }
 }
 .aboutbanner {
@@ -32,7 +33,7 @@
     height: 223px;
     border-radius: 25px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 600px) {
     height: 111px;
     &:before {
       height: 111px;
@@ -81,7 +82,7 @@
     margin: 20px auto;
 
     &__aboutelement {
-      width: 85%;
+      width: 90%;
       font-size: 13px;
       padding: 5px 8px;
       margin: 0 auto;
@@ -102,6 +103,7 @@
   max-height: 0px;
   background-color: #f6f6f6;
   width: 80%;
+  
   padding: 0 20px;
   overflow: hidden;
   transition: max-height 0.7s ease-in-out;
@@ -111,7 +113,7 @@
 .bar {
   position: relative;
   background-color: #f6f6f6;
-  max-height: 300px;
+ // max-height: 30px;
   width: 80%;
   padding: 0 20px;
   overflow: hidden;

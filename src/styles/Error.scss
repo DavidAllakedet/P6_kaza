@@ -16,7 +16,7 @@ $font-family: Montserrat;
 
   @media screen and (max-width: 600px) {
     width: 335px;
-    padding-top: 0;
+    padding: 30px 0;
   }
 }
 
@@ -30,7 +30,7 @@ $font-family: Montserrat;
 
   @media screen and (max-width: 600px) {
     font-size: 150px;
-    font-weight: 700;
+   
     padding: 0;
     margin: 0;
   }
@@ -53,7 +53,7 @@ $font-family: Montserrat;
   }
 }
 
-.RetourLink {
+.Retour {
   color: $color-primary;
   font-family: $font-family;
   font-size: 18px;
@@ -75,5 +75,6 @@ $font-family: Montserrat;
 
   @media screen and (max-width: 600px) {
     height: auto;
+    gap: 40px;
   }
 }

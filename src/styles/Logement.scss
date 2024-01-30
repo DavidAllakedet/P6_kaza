@@ -1,322 +1,4 @@
-// /* logement.scss */
-// $color-active: #ff6060;
-// $color-inactive: #c4c4c4;
-// /* RoomC */
-// .Logement {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 30px;
-  
-//     @media screen and (max-width: 600px) {
-      
-//       width: 335px;
-//     }
-//   }
-  
-//   /* RoomDiv */
-//   .LogementDiv {
-//     width: 100%;
-//     max-width: 1240px;
-//     color: #ff6060;
-//     gap: 50px;
-//     margin: auto;
-//     display: flex;
-//     flex-direction: column;
-  
-//     @media screen and (max-width: 600px) {
-//       padding: 0;
-//       gap: 30px;
-//       width: 335px;
-//     }
-//   }
 
-//    /* RoomContener */
-//    .LogementInfo {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-//     font-family: Montserrat;
-  
-//     @media screen and (max-width: 600px) {
-//       flex-direction: column;
-//       width: 335px;
-//       gap: 30px;
-//     }
-//   }
-  
-//   /* RoomContener1 */
-//   .LogementInfo1 {
-//     display: flex;
-//     flex-direction: column;
-//     gap: 30px;
-//     width: 100%;
-//     font-family: Montserrat;
-  
-//     @media screen and (max-width: 600px) {
-//       flex-direction: column;
-//       width: 335px;
-//     }
-//   }
-  
-//   .LogementInfo1__titre {
-//     font-size: 36px;
-//     font-weight: 500;
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 18px;
-//     }
-//   }
-  
-//   .LogementInfo1__p {
-//     font-size: 20px;
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 14px;
-//     }
-//   }
-  
-    
-//   /* Tagdiv */
-//   .LogementInfo1__Tagdiv {
-//     display: flex;
-//     flex-direction: row;
-//     width: 100%;
-//     gap: 10px;
-  
-//     @media screen and (max-width: 600px) {
-//       display: grid;
-//       grid-template-columns: repeat(3, 1fr);
-//       width: 335px;
-//     }
-//   }
-  
-//   /* Tag */
-//   .LogementInfo1__Tag {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     color: white;
-//     background-color: #ff6060;
-//     padding: 5px 40px;
-//     border-radius: 10px;
-//     font-family: Montserrat;
-  
-//     @media screen and (max-width: 600px) {
-//       padding: 5px 5px;
-//       border-radius: 10px;
-//       font-size: 10px;
-//     }
-//   }
-  
-//   /* RoomContener2 */
-//   .LogementInfo2 {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     align-items: center;
-//     gap: 30px;
-//     font-family: Montserrat;
-  
-//     @media screen and (max-width: 600px) {
-//       flex-direction: row-reverse;
-//       width: 335px;
-//     }
-//   }
-  
-//   /* RoomContener2Div */
-//   .LogementInfo2__host {
-//     display: flex;
-//       justify-content: flex-end;
-//       align-items: center;
-//       width: 100%;
-//       margin-bottom: 30px;
-//   }
-  
-//   /* Room2Texte */
-//   .LogementInfo2__host--name {
-//     font-size: 20px;
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 18px;
-//         width: 59px;
-//     }
-//   }
-  
-// //   /
-// // .LogementInfo2__host--name {
-// //     width: 60px;
-// //     height: 60px;
-// //     border-radius: 50%; /* Make it a perfect circle */
-// //     overflow: hidden; /* Clip the image to the circular shape */
-// //     background-size: cover;
-// //     background-position: center;
-// //     position: relative;
-  
-// //     @media screen and (max-width: 600px) {
-// //       width: 35px;
-// //       height: 35px;
-// //     }
-  
-//     /* Style for the image inside the circle */
-//     .LogementInfo2__host--pic {
-//       margin-left: 30px;
-//       position: relative;
-//     }
-//     .img {
-//     display: inline;
-//     width: 64px;
-//     height: 64px;
-//     border-radius: 50px;
-//     object-fit: cover;
-//   }
-//   // .EtoilesDiv {
-//   //   display: flex;
-//   //   font-size: 20px;
-  
-//   //   @media screen and (max-width: 600px) {
-//   //     justify-content: center;
-//   //     align-items: center;
-//   //   }
-//   // }
-  
-//   .LogementInfo2__Etoiles {
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 12px;
-//       margin-right: 5px;
-//     }
-//   }
-
-
-//   .activestar {
-//     color: #ff6060;
-//     font-size: 26px;
-//     margin-left: 10px;
-
-//     @media screen and (max-width: 600px) {
-//         font-size: 16px;
-//         margin-left: 5px;
-//       }
-//   }
-//   .innactivestar {
-//     color: #f6f6f6;
-//     font-size: 26px;
-//     margin-left: 10px;
-
-//     @media screen and (max-width: 600px) {
-//         font-size: 16px;
-//         margin-left: 5px;
-//       }
-//   }
-  
-  
-//   // /* AccordeonDiv */
-//   // .AccordeonDiv {
-//   //   display: flex;
-//   //   width: 1240px;
-  
-//   //   @media screen and (max-width: 600px) {
-//   //     flex-direction: column;
-//   //     align-items: center;
-//   //     gap: 20px;
-//   //     width: 335px;
-//   //   }
-//   // }
-  
-//   // /* AccordeonContener */
-//   // .AccordeonContener {
-//   //   display: flex;
-//   //   justify-content: space-between;
-  
-//   //   @media screen and (max-width: 600px) {
-//   //     flex-direction: column;
-//   //     align-items: center;
-//   //     gap: 20px;
-//   //   }
-//   // }
-  
-//   // /* Accordeon */
-//   // .Accordeon {
-//   //   display: flex;
-//   //   flex-direction: row; /* Updated to column */
-//   //   width: 100%; /* Set the width to 100% */
-//   //   font-family: Montserrat;
-//   //   gap: 20px; /* Added gap for better spacing */
-  
-//   //   @media screen and (max-width: 600px) {
-//   //     flex-direction: column;
-//   //     width: 335px;
-//   //     gap: 20px;
-//   //   }
-//   // }
- 
-  
-//   // /* HeaderFooterdiv */
-//   // .HeaderFooterdiv {
-//   //   display: flex;
-//   //   flex-direction: column;
-//   //   align-items: center;
-  
-//   //   @media screen and (max-width: 600px) {
-//   //     flex-direction: column;
-//   //   }
-//   // }
-  
-//   .Logement3 {
-//     display: flex;
-//     flex-direction: row;
-//     width: 100%;
-//     //margin: auto;
-//     justify-content: space-between;
-  
-//     // Collapse
-//     .aboutelements {
-//       width: 45%;
-//       margin-right: 0;
-//       margin-left: 0;
-  
-//       &__aboutelement {
-//         margin: 30px 0 0 0;
-//         width: 100%;
-//         box-sizing: border-box;
-//         position: relative;
-//       }
-//       & p {
-//         padding: 0;
-//         list-style: none;
-//         text-align: left;
-//       }
-//       & .bar {
-//         width: 100%;
-//         box-sizing: border-box;
-//       }
-//       & .foo {
-//         width: 100%;
-//         box-sizing: border-box;
-//       }
-//     }
-//     @media screen and (max-width: 600px) {
-//       flex-direction: column;
-//      // margin-top: 10px;
-  
-//       .aboutelements {
-//         width: 100%;
-//         margin-right: 0;
-//         margin-left: 0;
-//         margin: 0 auto 30px auto;
-//         &__aboutelement {
-//           margin: 0;
-//           padding: 7px 10px;
-//           p {
-//             font-size: 14px;
-//           }
-//           img {
-//             width: 15px;
-//           }
-//         }
-//       }
-//     }
-//   }
   .Etoilesdiv{
     width: 196px;
     height: 36px;
@@ -329,7 +11,7 @@
   }
     
 @import 'Couleurs.scss';
-/* RoomC */
+/* LogementC */
 .Logement {
     display: flex;
     flex-direction: column;
@@ -341,7 +23,7 @@
     }
   }
   
-  /* RoomDiv */
+  /* LogementDiv */
   .LogementDiv {
     width: 100%;
     max-width: 1240px;
@@ -358,7 +40,7 @@
     }
   }
 
-   /* RoomContener */
+   /* LogementContener */
    .LogementInfo {
     width: 100%;
     display: flex;
@@ -375,6 +57,9 @@
     &__titre {
       font-size: 36px;
       font-weight: 500;
+    }
+    &__location{
+      font-size: 22px;
     }
     &__Tagdiv{
       display: flex;
@@ -431,7 +116,7 @@
       margin-left: 10px;
     }
     & .innactivestar {
-      color: #f6f6f6;
+      color: #E3E3E3;
       width: 26px;
       height: 26px;
       margin-left: 10px;
@@ -455,6 +140,9 @@
     &__titre {
       font-size: 20px;
       font-weight: 500;
+    }
+    &__location{
+      font-size: 16px;
     }
     &__Tagdiv{
       display: flex;
@@ -485,11 +173,6 @@
       align-items: center;
         margin-bottom: 0;
       &--name {
-        // font-size: 12px;
-        // width: 93px;
-        // height: 33px;
-        // text-align: right;
-
         font-size: 12px;
           text-align: right;
       }
@@ -507,7 +190,7 @@
    }
    &__Etoiles {
       width: 100%;
-      //gap:10px;
+      
     & .activestar {
       width: 18px;
       height: 18px;
@@ -524,205 +207,12 @@
   }
 }
    }
-
-//   /* RoomContener1 */
-//   .LogementInfo1 {
-   
-  
-//     @media screen and (max-width: 600px) {
-//       flex-direction: column;
-//       width: 335px;
-//     }
-//   }
-  
-//   .LogementInfo1__titre {
-    
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 18px;
-//     }
-//   }
-  
-//   .LogementInfo1__p {
-//     font-size: 20px;
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 14px;
-//     }
-//   }
-  
-    
-//   /* Tagdiv */
-//   .LogementInfo1__Tagdiv {
-   
-  
-//     @media screen and (max-width: 600px) {
-//       display: grid;
-//       grid-template-columns: repeat(3, 1fr);
-//       width: 335px;
-//     }
-//   }
-  
-//   /* Tag */
-//   .LogementInfo1__Tag {
-   
-  
-//     @media screen and (max-width: 600px) {
-//       padding: 5px 5px;
-//       border-radius: 10px;
-//       font-size: 10px;
-//     }
-//   }
-  
-//   /* RoomContener2 */
-//   .LogementInfo2 {
-   
-  
-//     @media screen and (max-width: 600px) {
-//       flex-direction: row-reverse;
-//       width: 335px;
-//     }
-//   }
-  
-//   /* RoomContener2Div */
-//   .LogementInfo2__host {
-    
-//   }
-  
-//   /* Room2Texte */
-//   .LogementInfo2__host--name {
-   
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 18px;
-//         width: 59px;
-//     }
-//   }
-  
-// //   /
-// // .LogementInfo2__host--name {
-// //     width: 60px;
-// //     height: 60px;
-// //     border-radius: 50%; /* Make it a perfect circle */
-// //     overflow: hidden; /* Clip the image to the circular shape */
-// //     background-size: cover;
-// //     background-position: center;
-// //     position: relative;
-  
-// //     @media screen and (max-width: 600px) {
-// //       width: 35px;
-// //       height: 35px;
-// //     }
-  
-//     /* Style for the image inside the circle */
-//     .LogementInfo2__host--pic {
-     
-//     }
-//     .img {
-//     display: inline;
-//     width: 64px;
-//     height: 64px;
-//     border-radius: 50px;
-//     object-fit: cover;
-//   }
-//   // .EtoilesDiv {
-//   //   display: flex;
-//   //   font-size: 20px;
-  
-//   //   @media screen and (max-width: 600px) {
-//   //     justify-content: center;
-//   //     align-items: center;
-//   //   }
-//   // }
-  
-//   .LogementInfo2Etoiles {
-  
-//     @media screen and (max-width: 600px) {
-//       font-size: 12px;
-//       margin-right: 5px;
-//     }
-//   }
-
-
-//   .activestar {
-//     color: #ff6060;
-//     font-size: 26px;
-//     margin-left: 10px;
-
-//     @media screen and (max-width: 600px) {
-//         font-size: 16px;
-//         margin-left: 5px;
-//       }
-//   }
-//   .innactivestar {
-//     color: #f6f6f6;
-//     font-size: 26px;
-//     margin-left: 10px;
-
-//     @media screen and (max-width: 600px) {
-//         font-size: 16px;
-//         margin-left: 5px;
-//       }
-//   }
-  
-  
-  // /* AccordeonDiv */
-  // .AccordeonDiv {
-  //   display: flex;
-  //   width: 1240px;
-  
-  //   @media screen and (max-width: 600px) {
-  //     flex-direction: column;
-  //     align-items: center;
-  //     gap: 20px;
-  //     width: 335px;
-  //   }
-  // }
-  
-  // /* AccordeonContener */
-  // .AccordeonContener {
-  //   display: flex;
-  //   justify-content: space-between;
-  
-  //   @media screen and (max-width: 600px) {
-  //     flex-direction: column;
-  //     align-items: center;
-  //     gap: 20px;
-  //   }
-  // }
-  
-  // /* Accordeon */
-  // .Accordeon {
-  //   display: flex;
-  //   flex-direction: row; /* Updated to column */
-  //   width: 100%; /* Set the width to 100% */
-  //   font-family: Montserrat;
-  //   gap: 20px; /* Added gap for better spacing */
-  
-  //   @media screen and (max-width: 600px) {
-  //     flex-direction: column;
-  //     width: 335px;
-  //     gap: 20px;
-  //   }
-  // }
- 
-  
-  // /* HeaderFooterdiv */
-  // .HeaderFooterdiv {
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  
-  //   @media screen and (max-width: 600px) {
-  //     flex-direction: column;
-  //   }
-  // }
   
   .LogementC {
     display: flex;
     flex-direction: row;
     width: 100%;
-    //margin: auto;
+    
     justify-content: space-between;
   
     // Collapse
