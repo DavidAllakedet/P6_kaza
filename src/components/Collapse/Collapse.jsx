@@ -3,9 +3,14 @@ import button from '../../assets/CollapseButton.svg';
 
 function Collapse({ id, open, setOpen, title, text }) {
   const toggleValueById = (id) => {
-    const updatedOpen = [...open]
-    updatedOpen[id] = !updatedOpen[id]
-    setOpen(updatedOpen)
+    // Copie l'array open pour éviter la mutation directe de l'état
+    const updatedOpen = [...open];
+    
+    // Inverse la valeur de la section spécifique identifiée par id
+    updatedOpen[id] = !updatedOpen[id];
+    
+    // Met à jour l'état global open avec le nouvel array modifié
+    setOpen(updatedOpen);
   }
   return (
     <div className="aboutelements">
