@@ -39,14 +39,27 @@
   .card-p {
     display: inline;
     position: absolute;
-    width: 120px;
-    height: auto;
-    bottom: 20px;
-    left: 10px;
+    width: 300px;
+    Height:52px;
+    Top:268px;
+    Left:20px;
+    font-family: Montserrat;
     color: white;
     z-index: 2;
     font-size: 18px;
+    line-height: 25.67px;
     font-weight: 500;
+
+    @media screen and (max-width: 600px) {
+      width: 295px;
+      Height: 52px;
+      Top:188px;
+      font-family: Montserrat;
+      color: white;
+      line-height: 25.67px;
+     
+
+    }
   }
   
   .card-img {

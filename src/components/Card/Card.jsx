@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useData } from '../../pages/Utiles/Hooks/Hooks';
+import { getData } from '../../pages/Utiles/Getdata/Getdata';
 import '../../styles/Card.scss';
 
 function Card() {
-  const data = useData();
+  const list = getData();
 
   return (
     <div className="card-div">
       <div className="card-ul">
-        {data.map((item) => (
+        {list.map((item) => (
           <div className="card-to-logement" key={item.id}>
             <Link to={`/logement/${item.id}`}>
               <div className="card-p">{item.title}</div>
