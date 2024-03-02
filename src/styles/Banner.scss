@@ -45,7 +45,16 @@ $mobile-breakpoint: 600px;
     }
   }
 
-  @media screen and (max-width: $mobile-breakpoint) {
+  @media screen and (min-width: 700px) and (max-width: 1024px) {
+
+    width: 750px;
+    //margin: 0;
+    height: 200px;
+    border-radius: 10px;
+   
+  }
+
+  @media screen and (min-width: 200px) and (max-width: 700px)  {
 
     width: 335px;
     margin: 0;
@@ -64,7 +73,11 @@ $mobile-breakpoint: 600px;
   font-family: Montserrat;
   white-space: nowrap;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (min-width: 700px) and (max-width: 1024px)  {
+    font-size: 40px;
+    
+  }
+  @media screen and (min-width: 200px) and (max-width: 700px)  {
     font-size: 24px;
     font-style: normal;
     padding: 10px;

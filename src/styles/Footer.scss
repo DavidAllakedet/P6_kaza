@@ -4,14 +4,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0;
 
-  @media screen and (max-width: 600px) {
-    
-  }
 }
 .footer {
   width: 100%;
-  margin-top: 50px;
+  //margin-top: 50px;
+  margin-bottom: 0;
   padding:50px 0;
   display: flex;
   justify-content: center;
@@ -30,7 +29,20 @@
     font-size: 24px;
     margin-bottom: 20px;
   }
-  @media screen and (max-width: 600px) {
+
+  @media screen and (min-width: 700px) and (max-width: 1024px) {
+    margin: 0 auto;
+   width:700x;
+ 
+   
+    &__text {
+      margin-bottom: 30px;
+      font-size: 18px;
+      
+    }
+  }
+
+  @media screen and (min-width: 200px) and (max-width: 700px)  {
     width: 375px;
     padding: 0;
     margin-top: 0;
@@ -42,4 +54,6 @@
       width: 100px;
     }
   }
+
+  
 }

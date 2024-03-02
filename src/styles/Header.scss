@@ -26,7 +26,16 @@
     .active {
       text-decoration: underline;
     }
-    @media screen and (max-width: 600px) {
+
+    @media screen and (min-width: 700px) and (max-width: 1024px) {
+      margin: 25px auto;
+      width:700px;
+      align-items: center;
+    justify-content: center;
+      
+    }
+
+    @media screen and (min-width: 200px) and (max-width: 700px) {
       width:335px;
       align-items: center;
     justify-content: center;

@@ -8,7 +8,12 @@
     overflow: hidden;
     border-radius: 20px;
   
-    @media screen and (max-width: 600px) {
+    @media screen and (min-width: 700px) and (max-width: 1024px) {
+      width: 700px;
+      height: 355px;
+    }
+
+    @media screen and (min-width: 200px) and (max-width: 700px)  {
       width: 335px;
       height: 255px;
     }
@@ -21,7 +26,12 @@
     width: 100%;
     object-fit: cover;
   
-    @media screen and (max-width: 600px) {
+    @media screen and (min-width: 700px) and (max-width: 1024px) {
+      width: 700px;
+      height: 355px;
+    }
+
+    @media screen and (min-width: 200px) and (max-width: 700px) {
       width: 335px;
       height: 255px;
     }
@@ -36,7 +46,11 @@
     display: flex;
     justify-content: space-between;
   
-    @media screen and (max-width: 600px) {
+    @media screen and (min-width: 700px) and (max-width: 1024px)  {
+      width: 700px;
+    }
+
+    @media screen and (min-width: 200px) and (max-width: 700px)  {
       width: 335px;
     }
   
@@ -58,7 +72,14 @@
       height: 100px;
     }
   
-    @media screen and (max-width: 600px) {
+    @media screen and (min-width: 700px) and (max-width: 1024px)  {
+      img {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media screen and (min-width: 200px) and (max-width: 700px)  {
       img {
         width: 24px;
         height: 24px;
@@ -71,19 +92,18 @@
     right: 50%;
     bottom: 0px;
     font-weight: 500;
-    //background-color: rgba($secondary-color, 0.2);
+    
     color: white;
     font-family: Montserrat;
     font-size:18px;
     
 
   
-    @media screen and (max-width: 600px) {
+    @media screen and (min-width: 200px) and (max-width: 700px)  {
       position: absolute;
     right: 50%;
     bottom: 0px;
     font-weight: 500;
-    //background-color: rgba($secondary-color, 0.2);
     color: white;
     font-family: Montserrat;
     font-size:18px;

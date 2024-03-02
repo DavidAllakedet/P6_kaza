@@ -29,8 +29,15 @@
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
+
+     
+    @media screen and (min-width: 700px) and (max-width: 1024px)  {
+      width: 340px;
+      height: 340px;
+      }
+
     
-    @media screen and (max-width: 600px) {
+      @media screen and (min-width: 200px) and (max-width: 700px) {
     width: 335px;
     height: 255px;
     }
@@ -50,14 +57,15 @@
     line-height: 25.67px;
     font-weight: 500;
 
-    @media screen and (max-width: 600px) {
+    
+
+    @media screen and (min-width: 200px) and (max-width: 700px)  {
       width: 295px;
       Height: 52px;
       Top:188px;
       font-family: Montserrat;
       color: white;
       line-height: 25.67px;
-     
 
     }
   }
@@ -71,8 +79,23 @@
     object-fit: cover;
     filter: brightness(0.9);
   }
+
+  @media screen and (min-width: 700px) and (max-width: 1024px)  {
+    .card-ul {
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0;
+    }
   
-  @media screen and (max-width: 600px) {
+    .card-div {
+      background-color: #f6f6f6;
+      width: 700px;
+      border-radius: 10px;
+    }
+  }
+  
+  
+  
+  @media screen and (min-width: 200px) and (max-width: 700px)  {
     .card-ul {
       grid-template-columns: repeat(1, 1fr);
       margin: 0;

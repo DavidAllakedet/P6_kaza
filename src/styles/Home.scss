@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (min-width: 200px) and (max-width: 700px)  {
     
   }
 }
@@ -19,7 +19,7 @@
     align-items: center;
     gap: 50px;
   
-    @media screen and (max-width: 600px) {
+    @media screen and (min-width: 200px) and (max-width: 700px)  {
       gap: 20px;
     }
   }
@@ -35,8 +35,14 @@
     margin: 30px 0;
     background-color: #f6f6f6;
     border-radius: 25px;
+
+    @media screen and (min-width: 700px) and (max-width: 1024px) {
+      background-color: white;
+      width: 700px;
+      border-radius: 10px;
+    }
   
-    @media screen and (max-width: 600px){
+    @media screen and (min-width: 200px) and (max-width: 700px) {
       background-color: white;
       width: 335px;
       border-radius: 10px;
@@ -45,15 +51,21 @@
   
   .Cardul {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     margin: 50px auto;
     padding: 0;
     gap: 50px;
+
+    @media screen and (min-width: 700px) and (max-width: 1024px) {
+      width: 90%;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0;
+    }
   
-    @media screen and (max-width: 600px){
+    @media screen and (min-width: 200px) and (max-width: 700px) {
       width: 100%;
       grid-template-columns: repeat(1, 1fr);
       margin: 0;
@@ -61,12 +73,18 @@
   }
   
   .CardToLogement {
-    width: 340px;
+    width: 330px;
     height: 340px;
     position: relative;
     box-sizing: border-box;
     align-items: center;
     justify-content: center;
+
+
+    @media screen and (min-width: 700px) and (max-width: 1024px) {
+      width: 330px;
+    height: 320px;
+    }
   }
   
   .Cardp {
@@ -90,8 +108,14 @@
     border-radius: 10px;
     object-fit: cover;
     filter: brightness(0.9);
+
+    @media screen and (min-width: 700px) and (max-width: 1024px) {
+      width: 330px;
+      height: 320px;
+    }
+
   
-    @media screen and (max-width: 600px){
+    @media screen and (min-width: 200px) and (max-width: 700px) {
       width: 335px;
       height: 320px;
     }
